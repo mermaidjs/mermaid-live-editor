@@ -17,6 +17,9 @@ const rules = [
         presets: [
           ['env', { targets: { browsers: ['last 2 Chrome versions'] } }],
           'react'
+        ],
+        plugins: [
+          ['import', { libraryName: 'antd', style: 'css' }]
         ]
       }
     }

@@ -1,3 +1,12 @@
+html, body {
+  padding: 16px;
+}
+
 .separator {
-   border-bottom: 1px dotted gray;
+  border-bottom: 1px dotted gray;
+  margin: 16px 0;
+}
+
+.ant-btn {
+  margin: 0 8px;
 }
