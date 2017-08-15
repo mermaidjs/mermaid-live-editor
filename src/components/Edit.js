@@ -2,12 +2,21 @@ import React from 'react'
 import { Row, Col, Input } from 'antd'
 
 class Edit extends React.Component {
+  constructor (props) {
+    super(props)
+    this.onChange = this.onChange.bind(this)
+  }
+  onChange (event) {
+    const base64 = window.btoa(event.target.value)
+    const { history } = this.props
+    history.push(`/${base64}`)
+  }
   render () {
     const { match: { params: { base64 } } } = this.props
     const code = window.atob(base64)
     return <Row gutter={16}>
       <Col span={6}>
-        <Input.TextArea rows={16} value={code} />
+        <Input.TextArea rows={16} value={code} onChange={this.onChange} />
       </Col>
       <Col span={18}>
         <div ref={div => { this.container = div }}>{code}</div>
@@ -18,6 +27,7 @@ class Edit extends React.Component {
     window.mermaid.init(undefined, this.container)
   }
   componentDidUpdate () {
+    this.container.removeAttribute('data-processed')
     window.mermaid.init(undefined, this.container)
   }
 }
