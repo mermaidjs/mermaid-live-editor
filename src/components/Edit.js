@@ -1,5 +1,8 @@
 import React from 'react'
 import { Row, Col, Input } from 'antd'
+import { Route } from 'react-router-dom'
+
+import Error from './Error'
 
 class Edit extends React.Component {
   constructor (props) {
@@ -9,7 +12,7 @@ class Edit extends React.Component {
   onChange (event) {
     const base64 = window.btoa(event.target.value)
     const { history } = this.props
-    history.push(`/${base64}`)
+    history.push(`/edit/${base64}`)
   }
   render () {
     const { match: { params: { base64 } } } = this.props
@@ -20,6 +23,7 @@ class Edit extends React.Component {
       </Col>
       <Col span={18}>
         <div ref={div => { this.container = div }}>{code}</div>
+        <Route path='/edit/:base64/error' component={Error} />
       </Col>
     </Row>
   }
