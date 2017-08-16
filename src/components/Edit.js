@@ -3,6 +3,7 @@ import { Row, Col, Input } from 'antd'
 import { Route } from 'react-router-dom'
 
 import Error from './Error'
+import Preview from './Preview'
 
 class Edit extends React.Component {
   constructor (props) {
@@ -23,19 +24,10 @@ class Edit extends React.Component {
         <Input.TextArea ref={textArea => { this.textArea = textArea }} rows={16} value={code} onChange={this.onChange} />
       </Col>
       <Col span={18}>
-        <div ref={div => { this.container = div }}>{code}</div>
+        <Route exact path={url} render={() => <Preview code={code} />} />
         <Route path={url + '/error/:errorBase64'} component={Error} />
       </Col>
     </Row>
-  }
-  componentDidMount () {
-    window.mermaid.init(undefined, this.container)
-  }
-  componentDidUpdate () {
-    console.log('Edit componentDidUpdate')
-    this.container.removeAttribute('data-processed')
-    this.container.innerHTML = this.textArea.props.value
-    window.mermaid.init(undefined, this.container)
   }
 }
 

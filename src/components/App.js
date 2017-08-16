@@ -14,6 +14,7 @@ const App = () => (
       </ul>
 
       <div className='separator' />
+
       <Route path='/edit/:editBase64' component={Edit} />
       <Route path='/view/:viewBase64' component={View} />
     </div>
