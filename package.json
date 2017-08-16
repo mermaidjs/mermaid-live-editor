@@ -1,6 +1,6 @@
 {
-  "name": "react-router-demo",
-  "version": "1.0",
+  "name": "mermaid-live-editor",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "upgrade": "yarn-upgrade-all",
