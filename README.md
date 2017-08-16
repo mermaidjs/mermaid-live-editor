@@ -24,8 +24,3 @@ yarn install
 yarn dev
 open http://localhost:8080
 ```
-
-
-## todo
-
-Support Travis and coveralls
