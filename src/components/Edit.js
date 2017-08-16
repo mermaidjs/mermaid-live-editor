@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Input } from 'antd'
+import { Row, Col, Input, Icon } from 'antd'
 import { Route } from 'react-router-dom'
 
 import Error from './Error'
@@ -18,15 +18,24 @@ class Edit extends React.Component {
   render () {
     const { match: { url, params: { base64 } } } = this.props
     const code = window.atob(base64)
-    return <Row gutter={16}>
-      <Col span={6}>
-        <Input.TextArea rows={16} value={code} onChange={this.onChange} />
-      </Col>
-      <Col span={18}>
-        <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
-        <Route path={url + '/error/:base64'} component={Error} />
-      </Col>
-    </Row>
+    return <div>
+      <h1>Mermaid Live Editor</h1>
+      <div className='separator' />
+      <Row gutter={16}>
+        <Col span={6}>
+          <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+          <div className='separator' />
+          <ul className='marketing-links'>
+            <li><a href='https://mermaidjs.github.io/' target='_blank'><Icon type='book' /> Mermaid Documentation</a></li>
+            <li><a href='https://github.com/knsv/mermaid' target='_blank'><Icon type='github' /> Mermaid on GitHub</a></li>
+          </ul>
+        </Col>
+        <Col span={18}>
+          <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
+          <Route path={url + '/error/:base64'} component={Error} />
+        </Col>
+      </Row>
+    </div>
   }
 }
 

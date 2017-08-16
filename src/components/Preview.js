@@ -7,9 +7,7 @@ class Preview extends React.Component {
     const { code, match: { url } } = this.props
     return <div>
       <div ref={div => { this.container = div }}>{code}</div>
-
       <div className='separator' />
-
       <Button type='primary'><Link to={url.replace('/edit/', '/view/')}>Link to View</Link></Button>
       <Button type='primary'>Download SVG</Button>
     </div>
