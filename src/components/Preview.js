@@ -1,15 +1,24 @@
 import React from 'react'
 import { Button } from 'antd'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 class Preview extends React.Component {
+  constructor (props) {
+    super(props)
+    this.onDownloadSVG = this.onDownloadSVG.bind(this)
+  }
+  onDownloadSVG (event) {
+    event.target.href = `data:image/png;base64,${window.btoa(this.container.innerHTML)}`
+    event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
+  }
   render () {
     const { code, match: { url } } = this.props
     return <div>
       <div ref={div => { this.container = div }}>{code}</div>
       <div className='separator' />
       <Button type='primary'><Link to={url.replace('/edit/', '/view/')}>Link to View</Link></Button>
-      <Button type='primary'>Download SVG</Button>
+      <Button type='primary'><a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a></Button>
     </div>
   }
   initMermaid () {
