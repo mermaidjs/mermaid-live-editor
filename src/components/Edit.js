@@ -17,15 +17,15 @@ class Edit extends React.Component {
   }
   render () {
     console.log('render Edit')
-    const { match: { url, params: { editBase64 } } } = this.props
-    const code = window.atob(editBase64)
+    const { match: { url, params: { base64 } } } = this.props
+    const code = window.atob(base64)
     return <Row gutter={16}>
       <Col span={6}>
         <Input.TextArea rows={16} value={code} onChange={this.onChange} />
       </Col>
       <Col span={18}>
         <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
-        <Route path={url + '/error/:errorBase64'} component={Error} />
+        <Route path={url + '/error/:base64'} component={Error} />
       </Col>
     </Row>
   }
