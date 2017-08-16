@@ -16,7 +16,6 @@ class Edit extends React.Component {
     history.push(path.replace(':base64', base64))
   }
   render () {
-    console.log('render Edit')
     const { match: { url, params: { base64 } } } = this.props
     const code = window.atob(base64)
     return <Row gutter={16}>
