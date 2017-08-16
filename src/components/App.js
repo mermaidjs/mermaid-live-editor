@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom'
+import { HashRouter as Router, Route, NavLink, Redirect } from 'react-router-dom'
 
 import Edit from './Edit'
 import View from './View'
@@ -16,7 +16,7 @@ class App extends React.Component {
         </ul>
 
         <div className='separator' />
-
+        <Route exact path='/' render={() => <Redirect to={`/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U=`} />} />
         <Route path='/edit/:editBase64' component={Edit} />
         <Route path='/view/:viewBase64' component={View} />
       </div>
