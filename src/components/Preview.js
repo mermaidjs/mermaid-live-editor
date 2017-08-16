@@ -1,10 +1,6 @@
 import React from 'react'
 
 class Preview extends React.Component {
-  constructor (props) {
-    super(props)
-    this.initMermaid = this.initMermaid.bind(this)
-  }
   render () {
     console.log('render Preview')
     return <div ref={div => { this.container = div }}>{this.props.code}</div>
