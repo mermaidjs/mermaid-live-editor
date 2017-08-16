@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import Edit from './Edit'
 import View from './View'
@@ -10,9 +10,9 @@ class App extends React.Component {
     return <Router>
       <div>
         <ul>
-          <li><Link to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U='>Edit</Link></li>
-          <li><Link to='/view/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U='>View</Link></li>
-          <li><Link to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U=/error/UGFyc2UgZXJyb3Igb24gbGluZSAxOgpzZXF1ZW5jZURpYWdyYW1mZHNBCl4KRXhwZWN0aW5nICdTUEFDRScsICdOTCcsICdTRCcsIGdvdCAnQUNUT1'>Error</Link></li>
+          <li><NavLink activeClassName='activeLink' to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U='>Edit</NavLink></li>
+          <li><NavLink activeClassName='activeLink' to='/view/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U='>View</NavLink></li>
+          <li><NavLink activeClassName='activeLink' to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U=/error/UGFyc2UgZXJyb3Igb24gbGluZSAxOgpzZXF1ZW5jZURpYWdyYW1mZHNBCl4KRXhwZWN0aW5nICdTUEFDRScsICdOTCcsICdTRCcsIGdvdCAnQUNUT1'>Error</NavLink></li>
         </ul>
 
         <div className='separator' />
