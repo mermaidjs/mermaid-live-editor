@@ -11,9 +11,9 @@ class Edit extends React.Component {
     this.onChange = this.onChange.bind(this)
   }
   onChange (event) {
-    const { history } = this.props
+    const { history, match: { path } } = this.props
     const base64 = window.btoa(event.target.value)
-    history.push(`/edit/${base64}`)
+    history.push(path.replace(':base64', base64))
   }
   render () {
     console.log('render Edit')
