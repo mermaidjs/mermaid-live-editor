@@ -12,13 +12,13 @@ const App = () => (
         <li><Link to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U='>Edit</Link></li>
         <li><Link to='/view/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U='>View</Link></li>
         <li><Link to='/error/UGFyc2UgZXJyb3Igb24gbGluZSAxOgpzZXF1ZW5jZURpYWdyYW1mZHNBCl4KRXhwZWN0aW5nICdTUEFDRScsICdOTCcsICdTRCcsIGdvdCAnQUNUT1In'>Error</Link></li>
-        <li><Link to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U=/error'>Inner Error</Link></li>
+        <li><Link to='/edit/c2VxdWVuY2VEaWFncmFtCkEtPj4gQjogUXVlcnkKQi0+PiBDOiBGb3J3YXJkIHF1ZXJ5Ck5vdGUgcmlnaHQgb2YgQzogVGhpbmtpbmcuLi4KQy0+PiBCOiBSZXNwb25zZQpCLT4+IEE6IEZvcndhcmQgcmVzcG9uc2U=/error/UGFyc2UgZXJyb3Igb24gbGluZSAxOgpzZXF1ZW5jZURpYWdyYW1mZHNBCl4KRXhwZWN0aW5nICdTUEFDRScsICdOTCcsICdTRCcsIGdvdCAnQUNUT1'>Inner Error</Link></li>
       </ul>
 
       <div className='separator' />
-      <Route exact path='/edit/:base64' component={Edit} />
-      <Route path='/view/:base64' component={View} />
-      <Route path='/error/:base64' component={Error} />
+      <Route path='/edit/:editBase64' component={Edit} />
+      <Route path='/view/:viewBase64' component={View} />
+      <Route path='/error/:errorBase64' component={Error} />
     </div>
   </Router>
 )

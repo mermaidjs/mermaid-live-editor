@@ -15,15 +15,16 @@ class Edit extends React.Component {
     history.push(`/edit/${base64}`)
   }
   render () {
-    const { match: { params: { base64 } } } = this.props
-    const code = window.atob(base64)
+    console.log('render Edit')
+    const { match: { url, params: { editBase64 } } } = this.props
+    const code = window.atob(editBase64)
     return <Row gutter={16}>
       <Col span={6}>
-        <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+        <Input.TextArea ref={textArea => { this.textArea = textArea }} rows={16} value={code} onChange={this.onChange} />
       </Col>
       <Col span={18}>
         <div ref={div => { this.container = div }}>{code}</div>
-        <Route path='/edit/:base64/error' component={Error} />
+        <Route path={url + '/error/:errorBase64'} component={Error} />
       </Col>
     </Row>
   }
@@ -31,7 +32,9 @@ class Edit extends React.Component {
     window.mermaid.init(undefined, this.container)
   }
   componentDidUpdate () {
+    console.log('Edit componentDidUpdate')
     this.container.removeAttribute('data-processed')
+    this.container.innerHTML = this.textArea.props.value
     window.mermaid.init(undefined, this.container)
   }
 }
