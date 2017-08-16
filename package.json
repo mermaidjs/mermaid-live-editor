@@ -3,6 +3,7 @@
   "version": "1.0",
   "license": "MIT",
   "scripts": {
+    "upgrade": "yarn-upgrade-all",
     "dev": "node -r babel-register node_modules/.bin/webpack-dev-server"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.4",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "yarn-upgrade-all": "^0.1.6"
   }
 }
