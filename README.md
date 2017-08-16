@@ -25,6 +25,8 @@ yarn dev
 open http://localhost:8080
 ```
 
+This app is created with React + React Router v4.
+
 
 ## Release
 
