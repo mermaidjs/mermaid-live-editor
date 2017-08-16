@@ -1,13 +1,5 @@
 {
   "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ],
     "es2015"
   ]
 }

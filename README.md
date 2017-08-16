@@ -29,5 +29,5 @@ open http://localhost:8080
 ## Release
 
 ```
-yarn build
+yarn release
 ```
