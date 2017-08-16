@@ -1,19 +1,36 @@
 import React from 'react'
 
 class Preview extends React.Component {
+  constructor (props) {
+    super(props)
+    this.initMermaid = this.initMermaid.bind(this)
+  }
   render () {
     console.log('render Preview')
     return <div ref={div => { this.container = div }}>{this.props.code}</div>
   }
+  initMermaid () {
+    if (window.mermaid.parse(this.props.code) || this.mermaidError === null) {
+      window.mermaid.init(undefined, this.container)
+    } else {
+      const { history, match: { url } } = this.props
+      const base64 = window.btoa(this.mermaidError)
+      history.push(`${url}/error/${base64}`)
+    }
+  }
   componentDidMount () {
     console.log('Preview componentDidMount')
-    window.mermaid.init(undefined, this.container)
+    this.mermaidError = null
+    window.mermaid.parseError = (error, hash) => {
+      this.mermaidError = error
+    }
+    this.initMermaid()
   }
   componentDidUpdate () {
     console.log('Preview componentDidUpdate')
     this.container.removeAttribute('data-processed')
     this.container.innerHTML = this.props.code
-    window.mermaid.init(undefined, this.container)
+    this.initMermaid()
   }
 }
 

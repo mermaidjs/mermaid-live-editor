@@ -24,7 +24,7 @@ class Edit extends React.Component {
         <Input.TextArea rows={16} value={code} onChange={this.onChange} />
       </Col>
       <Col span={18}>
-        <Route exact path={url} render={() => <Preview code={code} />} />
+        <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
         <Route path={url + '/error/:errorBase64'} component={Error} />
       </Col>
     </Row>
