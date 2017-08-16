@@ -6,6 +6,7 @@ class Preview extends React.Component {
     return <div ref={div => { this.container = div }}>{this.props.code}</div>
   }
   componentDidMount () {
+    console.log('Preview componentDidMount')
     window.mermaid.init(undefined, this.container)
   }
   componentDidUpdate () {

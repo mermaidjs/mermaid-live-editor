@@ -11,8 +11,8 @@ class Edit extends React.Component {
     this.onChange = this.onChange.bind(this)
   }
   onChange (event) {
-    const base64 = window.btoa(event.target.value)
     const { history } = this.props
+    const base64 = window.btoa(event.target.value)
     history.push(`/edit/${base64}`)
   }
   render () {
@@ -21,7 +21,7 @@ class Edit extends React.Component {
     const code = window.atob(editBase64)
     return <Row gutter={16}>
       <Col span={6}>
-        <Input.TextArea ref={textArea => { this.textArea = textArea }} rows={16} value={code} onChange={this.onChange} />
+        <Input.TextArea rows={16} value={code} onChange={this.onChange} />
       </Col>
       <Col span={18}>
         <Route exact path={url} render={() => <Preview code={code} />} />

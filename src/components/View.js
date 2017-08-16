@@ -9,6 +9,7 @@ class View extends React.Component {
   }
 
   componentDidMount () {
+    console.log('View componentDidMount')
     window.mermaid.init(undefined, this.container)
   }
 }
