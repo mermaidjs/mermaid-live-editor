@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from 'antd'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { Base64 } from 'js-base64'
 
 class Preview extends React.Component {
   constructor (props) {
@@ -9,7 +10,7 @@ class Preview extends React.Component {
     this.onDownloadSVG = this.onDownloadSVG.bind(this)
   }
   onDownloadSVG (event) {
-    event.target.href = `data:image/png;base64,${window.btoa(this.container.innerHTML)}`
+    event.target.href = `data:image/png;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
   render () {
@@ -26,7 +27,7 @@ class Preview extends React.Component {
     if (window.mermaid.parse(code) || this.mermaidError === null) {
       window.mermaid.init(undefined, this.container)
     } else {
-      const base64 = window.btoa(this.mermaidError)
+      const base64 = Base64.encode(this.mermaidError)
       history.push(`${url}/error/${base64}`)
     }
   }

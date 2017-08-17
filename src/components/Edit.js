@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Input, Icon } from 'antd'
 import { Route } from 'react-router-dom'
+import { Base64 } from 'js-base64'
 
 import Error from './Error'
 import Preview from './Preview'
@@ -12,12 +13,12 @@ class Edit extends React.Component {
   }
   onChange (event) {
     const { history, match: { path } } = this.props
-    const base64 = window.btoa(event.target.value)
+    const base64 = Base64.encode(event.target.value)
     history.push(path.replace(':base64', base64))
   }
   render () {
     const { match: { url, params: { base64 } } } = this.props
-    const code = window.atob(base64)
+    const code = Base64.decode(base64)
     return <div>
       <h1>Mermaid Live Editor</h1>
       <div className='separator' />
