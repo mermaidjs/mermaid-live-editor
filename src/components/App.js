@@ -5,12 +5,12 @@ import { Base64 } from 'js-base64'
 import Edit from './Edit'
 import View from './View'
 
-const defaultCode = `sequenceDiagram
-A->> B: Query
-B->> C: Forward query
-Note right of C: Thinking...
-C->> B: Response
-B->> A: Forward response
+const defaultCode = `graph TD
+A[Christmas] -->|Get money| B(Go shopping)
+B --> C{Let me think}
+C -->|One| D[Laptop]
+C -->|Two| E[iPhone]
+C -->|Three| F[Car]
 `
 
 class App extends React.Component {
