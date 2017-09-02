@@ -19,7 +19,6 @@ class App extends React.Component {
       <Switch>
         <Route exact path='/' render={() => <Redirect to={`/edit/${Base64.encode(defaultCode)}`} />} />
         <Route exact path='/edit' render={() => <Redirect to={`/edit/blank`} />} />
-        <Route path='/edit/blank' component={Edit} />
         <Route path='/edit/:base64' component={Edit} />
         <Route path='/view/:base64' component={View} />
       </Switch>

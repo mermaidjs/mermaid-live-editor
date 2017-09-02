@@ -21,7 +21,7 @@ class Edit extends React.Component {
   }
   render () {
     const { match: { url, params: { base64 } } } = this.props
-    const code = base64 === undefined ? '' : Base64.decode(base64)
+    const code = base64 === 'blank' ? '' : Base64.decode(base64)
     return <div>
       <h1>Mermaid Live Editor</h1>
       <div className='separator' />
