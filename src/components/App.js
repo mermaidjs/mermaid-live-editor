@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { Base64 } from 'js-base64'
 
 import Edit from './Edit'
@@ -16,11 +16,13 @@ C -->|Three| F[Car]
 class App extends React.Component {
   render () {
     return <Router>
-      <div>
+      <Switch>
         <Route exact path='/' render={() => <Redirect to={`/edit/${Base64.encode(defaultCode)}`} />} />
+        <Route exact path='/edit' render={() => <Redirect to={`/edit/blank`} />} />
+        <Route path='/edit/blank' component={Edit} />
         <Route path='/edit/:base64' component={Edit} />
         <Route path='/view/:base64' component={View} />
-      </div>
+      </Switch>
     </Router>
   }
 }

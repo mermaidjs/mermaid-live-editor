@@ -13,12 +13,15 @@ class Edit extends React.Component {
   }
   onChange (event) {
     const { history, match: { path } } = this.props
-    const base64 = Base64.encode(event.target.value)
+    let base64 = Base64.encode(event.target.value)
+    if (base64 === '') {
+      base64 = 'blank'
+    }
     history.push(path.replace(':base64', base64))
   }
   render () {
     const { match: { url, params: { base64 } } } = this.props
-    const code = Base64.decode(base64)
+    const code = base64 === undefined ? '' : Base64.decode(base64)
     return <div>
       <h1>Mermaid Live Editor</h1>
       <div className='separator' />
