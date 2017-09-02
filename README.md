@@ -33,3 +33,9 @@ This app is created with React + React Router v4.
 ```
 yarn release
 ```
+
+
+## Todo
+
+- Setup CI and coveralls
+- Improve test coverage

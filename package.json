@@ -13,7 +13,7 @@
   "dependencies": {
     "antd": "^2.12.8",
     "js-base64": "^2.1.9",
-    "mermaid": "^7.0.4",
+    "mermaid": "^7.0.6",
     "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -35,7 +35,7 @@
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1",
-    "yarn-upgrade-all": "^0.1.6"
+    "yarn-upgrade-all": "^0.1.8"
   },
   "standard": {
     "ignore": [
