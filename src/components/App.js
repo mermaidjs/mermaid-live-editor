@@ -5,7 +5,7 @@ import { Base64 } from 'js-base64'
 import Edit from './Edit'
 import View from './View'
 
-const defaultCode = `graph TD
+export const defaultCode = `graph TD
 A[Christmas] -->|Get money| B(Go shopping)
 B --> C{Let me think}
 C -->|One| D[Laptop]
