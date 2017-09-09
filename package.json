@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "upgrade": "yarn-upgrade-all",
+    "upgrade": "yarn upgrade --latest",
     "dev": "node -r babel-register node_modules/.bin/webpack-dev-server",
     "build": "node -r babel-register node_modules/.bin/webpack --progress --colors",
-    "release": "yarn build -- -p",
+    "release": "yarn build -p",
     "test": "standard && jest --coverage",
-    "test:watch": "yarn test -- --watch"
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
-    "antd": "^2.12.8",
+    "antd": "^2.13.0",
     "js-base64": "^2.1.9",
-    "mermaid": "^7.0.6",
+    "mermaid": "7.0.8",
     "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -29,13 +29,12 @@
     "css-loader": "^0.28.7",
     "enzyme": "^2.9.1",
     "extract-text-webpack-plugin": "^3.0.0",
-    "jest": "^20.0.4",
+    "jest": "^21.0.2",
     "react-test-renderer": "^15.6.1",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
-    "yarn-upgrade-all": "^0.1.8"
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.7.1"
   },
   "standard": {
     "ignore": [
