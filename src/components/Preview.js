@@ -25,18 +25,15 @@ class Preview extends React.Component {
   }
   initMermaid () {
     const { code, history, match: { url } } = this.props
-    if (mermaid.parse(code) || this.mermaidError === null) {
+    try {
+      mermaid.parse(code)
       mermaid.init(undefined, this.container)
-    } else {
-      const base64 = Base64.encode(this.mermaidError)
+    } catch ({str, hash}) {
+      const base64 = Base64.encode(str)
       history.push(`${url}/error/${base64}`)
     }
   }
   componentDidMount () {
-    this.mermaidError = null
-    mermaid.parseError = (error, hash) => {
-      this.mermaidError = error
-    }
     this.initMermaid()
   }
   componentDidUpdate () {

@@ -1,2 +1,5 @@
+- Setup CI and coveralls
+- Improve test coverage
 - Generate source map for easy debugging
 - Upgrade to js-base64 2.2.0: https://github.com/dankogai/js-base64/issues/50
+- `mermaid.init` should throw exception, no need to call `mermaid.parse`
