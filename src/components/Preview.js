@@ -3,6 +3,7 @@ import { Button } from 'antd'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import { Base64 } from 'js-base64'
+import mermaid from 'mermaid'
 
 class Preview extends React.Component {
   constructor (props) {
@@ -24,8 +25,8 @@ class Preview extends React.Component {
   }
   initMermaid () {
     const { code, history, match: { url } } = this.props
-    if (window.mermaid.parse(code) || this.mermaidError === null) {
-      window.mermaid.init(undefined, this.container)
+    if (mermaid.parse(code) || this.mermaidError === null) {
+      mermaid.init(undefined, this.container)
     } else {
       const base64 = Base64.encode(this.mermaidError)
       history.push(`${url}/error/${base64}`)
@@ -33,7 +34,7 @@ class Preview extends React.Component {
   }
   componentDidMount () {
     this.mermaidError = null
-    window.mermaid.parseError = (error, hash) => {
+    mermaid.parseError = (error, hash) => {
       this.mermaidError = error
     }
     this.initMermaid()

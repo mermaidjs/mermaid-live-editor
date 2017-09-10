@@ -1,5 +1,6 @@
 import React from 'react'
 import { Base64 } from 'js-base64'
+import mermaid from 'mermaid'
 
 class View extends React.Component {
   render () {
@@ -9,7 +10,7 @@ class View extends React.Component {
   }
 
   componentDidMount () {
-    window.mermaid.init(undefined, this.container)
+    mermaid.init(undefined, this.container)
   }
 }
 

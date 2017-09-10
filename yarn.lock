@@ -1684,7 +1684,7 @@ d@1:
   dependencies:
     es5-ext "^0.10.9"
 
-dagre-d3-renderer@^0.4.18:
+dagre-d3-renderer@^0.4.23:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/dagre-d3-renderer/-/dagre-d3-renderer-0.4.23.tgz#c0cddbc9b85409e78f4fb3e6ebc45be3b4d29227"
   dependencies:
@@ -1699,13 +1699,6 @@ dagre-layout@^0.8.0:
   dependencies:
     graphlib "^2.1.1"
     lodash "^4.17.4"
-
-dagre@^0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/dagre/-/dagre-0.7.4.tgz#de72f0e74a550ce11ce638f0a136fed712398022"
-  dependencies:
-    graphlib "^1.0.5"
-    lodash "^3.10.0"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -2712,12 +2705,6 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-graphlib@^1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/graphlib/-/graphlib-1.0.7.tgz#0cab2df0ffe6abe070b2625bfa1edb6ec967b8b1"
-  dependencies:
-    lodash "^3.10.0"
-
 graphlib@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/graphlib/-/graphlib-2.1.1.tgz#42352c52ba2f4d035cb566eb91f7395f76ebc951"
@@ -3540,7 +3527,7 @@ jquery@>=1.7.2:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
-js-base64@^2.1.9:
+js-base64@2.1.9, js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
 
@@ -3822,10 +3809,6 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^3.10.0:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
-
 lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.16.5, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
@@ -3922,14 +3905,14 @@ merge@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
 
-mermaid@7.0.8:
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-7.0.8.tgz#9138aa48105f406487d535b992bbee26f13ad4da"
+mermaid@^7.0.13:
+  version "7.0.13"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-7.0.13.tgz#ae661d1ea28a7d452efca63723e3b596f3b2a62c"
   dependencies:
     chalk "^2.1.0"
     d3 "3.5.17"
-    dagre "^0.7.4"
-    dagre-d3-renderer "^0.4.18"
+    dagre-d3-renderer "^0.4.23"
+    dagre-layout "^0.8.0"
     he "^1.1.1"
     lodash "^4.17.4"
     minimist "^1.2.0"
