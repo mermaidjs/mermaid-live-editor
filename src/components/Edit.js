@@ -1,10 +1,16 @@
 import React from 'react'
-import { Row, Col, Input, Icon } from 'antd'
+import { Row, Col, Input, Icon, Tag } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
 
 import Error from './Error'
 import Preview from './Preview'
+import pkg from '../../package.json'
+
+let mermaidVersion = pkg.dependencies.mermaid
+if (mermaidVersion[0] === '^') {
+  mermaidVersion = mermaidVersion.substring(1)
+}
 
 class Edit extends React.Component {
   constructor (props) {
@@ -35,6 +41,8 @@ class Edit extends React.Component {
             <li><a href='https://github.com/mermaidjs/mermaid-gitbook' target='_blank'><Icon type='github' /> Documentation on GitHub</a></li>
             <li><a href='https://github.com/mermaidjs/mermaid-live-editor' target='_blank'><Icon type='github' /> Live Editor on GitHub</a></li>
           </ul>
+          <div className='separator' />
+          <h3>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
         </Col>
         <Col span={18}>
           <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
