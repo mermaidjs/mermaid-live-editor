@@ -31,7 +31,6 @@ const config = {
   entry: {
     index: './src/index.js'
   },
-  externals: 'fs', // in order to make mermaid work
   output: {
     path: __dirname,
     filename: '[name].bundle.js'
