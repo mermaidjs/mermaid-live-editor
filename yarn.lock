@@ -3531,9 +3531,9 @@ js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
 
-js-base64@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.0.tgz#5f052d7f21023b745db81373f70e0e241df66dab"
+js-base64@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.1.tgz#3705897c35fce0e202132630e750d8a17cd220ec"
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"

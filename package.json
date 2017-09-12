@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "antd": "^2.13.1",
-    "js-base64": "^2.3.0",
+    "js-base64": "^2.3.1",
     "mermaid": "^7.0.14",
     "moment": "^2.18.1",
     "react": "^15.6.1",
