@@ -11,7 +11,7 @@ class Preview extends React.Component {
     this.onDownloadSVG = this.onDownloadSVG.bind(this)
   }
   onDownloadSVG (event) {
-    event.target.href = `data:image/png;base64,${Base64.encode(this.container.innerHTML)}`
+    event.target.href = `data:image/png;base64,${Base64.encodeURI(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
   render () {
@@ -29,7 +29,7 @@ class Preview extends React.Component {
       mermaid.parse(code)
       mermaid.init(undefined, this.container)
     } catch ({str, hash}) {
-      const base64 = Base64.encode(str)
+      const base64 = Base64.encodeURI(str)
       history.push(`${url}/error/${base64}`)
     }
   }

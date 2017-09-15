@@ -25,7 +25,7 @@ const verifyButtons = (code) => {
   expect(buttons.length).toEqual(2)
   const link = buttons.at(0).find(Link).first()
   expect(link.props().children).toEqual('Link to View')
-  expect(link.props().to).toEqual('/view/' + Base64.encode(code))
+  expect(link.props().to).toEqual('/view/' + Base64.encodeURI(code))
   const a = buttons.at(1).find('a').first()
   expect(a.props().children).toEqual('Download SVG')
 }

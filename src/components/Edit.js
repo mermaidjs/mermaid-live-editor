@@ -19,7 +19,7 @@ class Edit extends React.Component {
   }
   onChange (event) {
     const { history, match: { path } } = this.props
-    let base64 = Base64.encode(event.target.value)
+    let base64 = Base64.encodeURI(event.target.value)
     if (base64 === '') {
       base64 = 'blank'
     }
