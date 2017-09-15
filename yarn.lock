@@ -3475,7 +3475,7 @@ jest-validate@^21.1.0:
     leven "^2.1.0"
     pretty-format "^21.1.0"
 
-jest@^21.0.2:
+jest@^21.1.0:
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-21.1.0.tgz#77c7baa8aa9e8bace7fe41a30d748ab56e89476a"
   dependencies:
@@ -3485,7 +3485,7 @@ jquery@>=1.7.2:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
-js-base64@^2.1.9, js-base64@^2.3.1:
+js-base64@^2.1.9, js-base64@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.2.tgz#a79a923666372b580f8e27f51845c6f7e8fbfbaf"
 
@@ -6247,7 +6247,7 @@ webpack-dev-middleware@^1.11.0:
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
 
-webpack-dev-server@^2.7.1:
+webpack-dev-server@^2.8.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-2.8.2.tgz#abd61f410778cc4c843d7cebbf41465b1ab7734c"
   dependencies:
@@ -6283,7 +6283,7 @@ webpack-sources@^1.0.1:
     source-list-map "^2.0.0"
     source-map "~0.5.3"
 
-webpack@^3.5.6:
+webpack@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.6.0.tgz#a89a929fbee205d35a4fa2cc487be9cbec8898bc"
   dependencies:
@@ -6500,3 +6500,9 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yarn-upgrade-all@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/yarn-upgrade-all/-/yarn-upgrade-all-0.2.0.tgz#afd9c6dcddc1dbb4e63d1675419a76d003c8aa24"
+  dependencies:
+    chalk "^2.1.0"
