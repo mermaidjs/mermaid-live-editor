@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Input, Icon, Tag } from 'antd'
+import { Row, Col, Input, Icon, Tag, Affix } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
 
@@ -33,7 +33,9 @@ class Edit extends React.Component {
       <div className='separator' />
       <Row gutter={16}>
         <Col span={6}>
-          <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+          <Affix>
+            <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+          </Affix>
           <div className='separator' />
           <ul className='marketing-links'>
             <li><a href='https://mermaidjs.github.io/' target='_blank'><Icon type='book' /> Mermaid Documentation</a></li>
