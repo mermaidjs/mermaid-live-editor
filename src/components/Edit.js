@@ -20,6 +20,7 @@ if (mermaidVersion[0] === '^') {
 class Edit extends React.Component {
   constructor(props) {
     super(props)
+    let _this = this
     this.state = {code: `graph TD
     A[Christmas] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -27,6 +28,16 @@ class Edit extends React.Component {
     C -->|Two| E[iPhone]
     C -->|Three| F[Car]
     `}
+
+    socket.on('sync', function (msg) {
+      _this.setState({code: msg})
+      try {
+        mermaid.parse(code)
+        mermaid.init(undefined, this.container)
+      } catch ({ str, hash }) {
+        return <pre>str</pre>
+      }
+    })
 
     this.onChange = this.onChange.bind(this)
   }
@@ -49,16 +60,6 @@ class Edit extends React.Component {
     })
 
     socket.emit('save', event.target.value)
-
-    socket.on('sync', function (msg) {
-      _this.setState({code: msg})
-      try {
-        mermaid.parse(code)
-        mermaid.init(undefined, this.container)
-      } catch ({ str, hash }) {
-        return <pre>str</pre>
-      }
-    })
   }
   render() {
     const { match: { url, params: { base64 } } } = this.props
