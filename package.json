@@ -8,16 +8,21 @@
     "build": "node -r babel-register node_modules/.bin/webpack --progress --colors",
     "release": "yarn build -p",
     "test": "standard && jest --coverage",
-    "test:watch": "yarn test --watch"
+    "test:watch": "yarn test --watch",
+    "start-server": "nohup node server.js &"
   },
   "dependencies": {
     "antd": "^2.13.1",
     "js-base64": "^2.3.2",
     "mermaid": "^7.1.0",
+    "mime-types": "^2.1.17",
     "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
