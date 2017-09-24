@@ -20,7 +20,13 @@ if (mermaidVersion[0] === '^') {
 class Edit extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {code: null}
+    this.state = {code: `graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[Car]
+    `}
 
     this.onChange = this.onChange.bind(this)
   }
@@ -30,15 +36,20 @@ class Edit extends React.Component {
     .then(function(response){
       return response.text()
     }).then(function(body){
-      _this.setState({code: body})
+      if(body){
+        _this.setState({ code: body })
+      }
     })
   }
   
   onChange(event) {
     var _this = this
-    let tmpdata = event.target.value
-    this.state.code = tmpdata
-    socket.emit('save', tmpdata)
+    this.setState({
+      code: event.target.value
+    })
+
+    socket.emit('save', event.target.value)
+
     socket.on('sync', function (msg) {
       _this.setState({code: msg})
       try {

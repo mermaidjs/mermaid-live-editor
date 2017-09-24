@@ -4,18 +4,10 @@ import { Base64 } from 'js-base64'
 
 import Edit from './Edit'
 import View from './View'
-import io from 'socket.io-client';
-import Config from './Config'
+// import io from 'socket.io-client';
+// import Config from './Config'
 
-const socket = io(Config.endpoint, {})
-
-export const defaultCode = `graph TD
-A[Christmas] -->|Get money| B(Go shopping)
-B --> C{Let me think}
-C -->|One| D[Laptop]
-C -->|Two| E[iPhone]
-C -->|Three| F[Car]
-`
+// const socket = io(Config.endpoint, {})
 
 class App extends React.Component {
   render () {

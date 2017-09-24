@@ -17,10 +17,9 @@ class Preview extends React.Component {
   render () {
     const { code, match: { url } } = this.props
     return <div>
-      <div id="error"></div>
+      <div ref={div => {this.error = div}}></div>
       <div ref={div => { this.container = div }}>{code}</div>
       <div className='separator' />
-      <Button type='primary'><Link to={url.replace('/edit/', '/view/')}>Link to View</Link></Button>
       <Button type='primary'><a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a></Button>
     </div>
   }
@@ -45,7 +44,7 @@ class Preview extends React.Component {
 
   setError(str){
     //data model bound will make Stack Overflow so just set the real dom value
-    document.getElementById('error').innerHTML = `<pre>` + str + `</pre>`
+    this.error.innerHTML = `<pre>` + str + `</pre>`
   }
 }
 

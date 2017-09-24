@@ -95441,7 +95441,6 @@ module.exports = baseGt;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.defaultCode = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -95478,8 +95477,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var socket = (0, _socket2.default)(_Config2.default.endpoint, {});
-
-var defaultCode = exports.defaultCode = 'graph TD\nA[Christmas] -->|Get money| B(Go shopping)\nB --> C{Let me think}\nC -->|One| D[Laptop]\nC -->|Two| E[iPhone]\nC -->|Three| F[Car]\n';
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -100737,7 +100734,7 @@ var Edit = function (_React$Component) {
 
     var _this2 = _possibleConstructorReturn(this, (Edit.__proto__ || Object.getPrototypeOf(Edit)).call(this, props));
 
-    _this2.state = { code: null };
+    _this2.state = { code: 'graph TD\n    A[Christmas] -->|Get money| B(Go shopping)\n    B --> C{Let me think}\n    C -->|One| D[Laptop]\n    C -->|Two| E[iPhone]\n    C -->|Three| F[Car]\n    ' };
 
     _this2.onChange = _this2.onChange.bind(_this2);
     return _this2;
@@ -100750,16 +100747,21 @@ var Edit = function (_React$Component) {
       fetch(_Config2.default.endpoint + "/data").then(function (response) {
         return response.text();
       }).then(function (body) {
-        _this.setState({ code: body });
+        if (body) {
+          _this.setState({ code: body });
+        }
       });
     }
   }, {
     key: 'onChange',
     value: function onChange(event) {
       var _this = this;
-      var tmpdata = event.target.value;
-      this.state.code = tmpdata;
-      socket.emit('save', tmpdata);
+      this.setState({
+        code: event.target.value
+      });
+
+      socket.emit('save', event.target.value);
+
       socket.on('sync', function (msg) {
         _this.setState({ code: msg });
         try {
@@ -105453,7 +105455,9 @@ var Preview = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement('div', { id: 'error' }),
+        _react2.default.createElement('div', { ref: function ref(div) {
+            _this2.error = div;
+          } }),
         _react2.default.createElement(
           'div',
           { ref: function ref(div) {
@@ -105462,15 +105466,6 @@ var Preview = function (_React$Component) {
           code
         ),
         _react2.default.createElement('div', { className: 'separator' }),
-        _react2.default.createElement(
-          _button2.default,
-          { type: 'primary' },
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: url.replace('/edit/', '/view/') },
-            'Link to View'
-          )
-        ),
         _react2.default.createElement(
           _button2.default,
           { type: 'primary' },
@@ -105517,7 +105512,7 @@ var Preview = function (_React$Component) {
     key: 'setError',
     value: function setError(str) {
       //data model bound will make Stack Overflow so just set the real dom value
-      document.getElementById('error').innerHTML = '<pre>' + str + '</pre>';
+      this.error.innerHTML = '<pre>' + str + '</pre>';
     }
   }]);
 
