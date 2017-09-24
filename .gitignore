@@ -1,2 +1,6 @@
 node_modules/
 coverage/
+Server.pid
+index.bundle.css
+index.bundle.js
+nohup.out
