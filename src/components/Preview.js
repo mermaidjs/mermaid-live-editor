@@ -17,6 +17,7 @@ class Preview extends React.Component {
   render () {
     const { code, match: { url } } = this.props
     return <div>
+      <div id="error"></div>
       <div ref={div => { this.container = div }}>{code}</div>
       <div className='separator' />
       <Button type='primary'><Link to={url.replace('/edit/', '/view/')}>Link to View</Link></Button>
@@ -26,11 +27,11 @@ class Preview extends React.Component {
   initMermaid () {
     const { code, history, match: { url } } = this.props
     try {
+      this.setError('')
       mermaid.parse(code)
       mermaid.init(undefined, this.container)
     } catch ({str, hash}) {
-      const base64 = Base64.encodeURI(str)
-      history.push(`${url}/error/${base64}`)
+      this.setError(str)
     }
   }
   componentDidMount () {
@@ -40,6 +41,11 @@ class Preview extends React.Component {
     this.container.removeAttribute('data-processed')
     this.container.innerHTML = this.props.code
     this.initMermaid()
+  }
+
+  setError(str){
+    //data model bound will make Stack Overflow so just set the real dom value
+    document.getElementById('error').innerHTML = `<pre>` + str + `</pre>`
   }
 }
 

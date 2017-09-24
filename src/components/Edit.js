@@ -2,10 +2,15 @@ import React from 'react'
 import { Row, Col, Input, Icon, Tag, Affix } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
+import Fetch from 'whatwg-fetch'
 
 import Error from './Error'
 import Preview from './Preview'
 import pkg from '../../package.json'
+import io from 'socket.io-client'
+import Config from './Config'
+
+const socket = io(Config.endpoint, {})
 
 let mermaidVersion = pkg.dependencies.mermaid
 if (mermaidVersion[0] === '^') {
@@ -13,28 +18,48 @@ if (mermaidVersion[0] === '^') {
 }
 
 class Edit extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
+    this.state = {code: null}
+
     this.onChange = this.onChange.bind(this)
   }
-  onChange (event) {
-    const { history, match: { path } } = this.props
-    let base64 = Base64.encodeURI(event.target.value)
-    if (base64 === '') {
-      base64 = 'blank'
-    }
-    history.push(path.replace(':base64', base64))
+  componentDidMount(){
+    var _this = this;
+    fetch(Config.endpoint + "/data")
+    .then(function(response){
+      return response.text()
+    }).then(function(body){
+      _this.setState({code: body})
+    })
   }
-  render () {
+  
+  onChange(event) {
+    var _this = this
+    let tmpdata = event.target.value
+    this.state.code = tmpdata
+    socket.emit('save', tmpdata)
+    socket.on('sync', function (msg) {
+      _this.setState({code: msg})
+      try {
+        mermaid.parse(code)
+        mermaid.init(undefined, this.container)
+      } catch ({ str, hash }) {
+        return <pre>str</pre>
+      }
+    })
+  }
+  render() {
     const { match: { url, params: { base64 } } } = this.props
-    const code = base64 === 'blank' ? '' : Base64.decode(base64)
+    // const code = this.state.code
+    // const code = base64 === 'blank' ? '' : Base64.decode(base64)
     return <div>
       <h1>Mermaid Live Editor</h1>
       <div className='separator' />
       <Row gutter={16}>
         <Col span={6}>
           <Affix>
-            <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+            <Input.TextArea rows={16} value={this.state.code} onChange={this.onChange} />
           </Affix>
           <div className='separator' />
           <ul className='marketing-links'>
@@ -47,7 +72,7 @@ class Edit extends React.Component {
           <h3>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
         </Col>
         <Col span={18}>
-          <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
+          <Route exact path={url} render={(props) => <Preview {...props} code={this.state.code} />} />
           <Route path={url + '/error/:base64'} component={Error} />
         </Col>
       </Row>
