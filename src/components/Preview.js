@@ -11,8 +11,13 @@ class Preview extends React.Component {
     this.onDownloadSVG = this.onDownloadSVG.bind(this)
   }
   onDownloadSVG (event) {
-    event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
-    event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
+    event.preventDefault()
+    const link = document.createElement('a')
+    link.setAttribute('type', 'hidden')
+    link.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
+    link.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
+    document.body.appendChild(link)
+    link.click()
   }
   render () {
     const { code, match: { url } } = this.props
@@ -20,7 +25,7 @@ class Preview extends React.Component {
       <div ref={div => { this.container = div }}>{code}</div>
       <div className='separator' />
       <Button type='primary'><Link to={url.replace('/edit/', '/view/')}>Link to View</Link></Button>
-      <Button type='primary'><a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a></Button>
+      <Button type='primary' onClick={this.onDownloadSVG}>Download SVG</Button>
     </div>
   }
   initMermaid () {
