@@ -1,13 +1,16 @@
 /* eslint-env jest */
 
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, configure } from 'enzyme'
 import { Input, Button } from 'antd'
 import { Link } from 'react-router-dom'
 import { Base64 } from 'js-base64'
-
+import Adapter from 'enzyme-adapter-react-16'
 import 'mermaid'
+
 import App, { defaultCode } from '../src/components/App'
+
+configure({ adapter: new Adapter() })
 
 let wrapper = null
 beforeEach(() => {
