@@ -2,8 +2,7 @@
 
 import React from 'react'
 import { mount, configure } from 'enzyme'
-import { Input, Button } from 'antd'
-import { Link } from 'react-router-dom'
+import { Input } from 'antd'
 import { Base64 } from 'js-base64'
 import Adapter from 'enzyme-adapter-react-16'
 import 'mermaid'
@@ -23,17 +22,15 @@ const verifyTextArea = (code) => {
   expect(textArea.props().value).toEqual(code)
 }
 
-const verifyButtons = (code) => {
-  const buttons = wrapper.find(Button)
-  expect(buttons.length).toEqual(2)
-  const link = buttons.at(0).find(Link).first()
-  expect(link.props().children).toEqual('Link to View')
-  expect(link.props().to).toEqual('/view/' + Base64.encodeURI(code))
-  const a = buttons.at(1).find('a').first()
-  expect(a.props().children).toEqual('Download SVG')
+const verifyLinks = (code) => {
+  const links = wrapper.find('.links').find('a')
+  expect(links.length).toEqual(2)
+  expect(links.at(0).props().children).toEqual('Link to View')
+  expect(links.at(0).props().href).toEqual('#/view/' + Base64.encodeURI(code))
+  expect(links.at(1).props().children).toEqual('Download SVG')
 }
 
 test('/', () => {
   verifyTextArea(defaultCode)
-  verifyButtons(defaultCode)
+  verifyLinks(defaultCode)
 })
