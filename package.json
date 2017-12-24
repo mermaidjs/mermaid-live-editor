@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack --progress --colors",
     "release": "yarn build -p",
-    "test": "standard && jest",
+    "test": "standard && jest --coverage",
     "test:watch": "yarn test --watch"
   },
   "dependencies": {
@@ -30,7 +30,6 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "jest": "^22.0.3",
-    "react-test-renderer": "^16.2.0",
     "standard": "^10.0.3",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
