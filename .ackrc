@@ -1,3 +1,5 @@
---ignore-file=match:/^.+\.bundle\..+$/
 --ignore-file=match:/^yarn\.lock$/
 --ignore-dir=coverage
+--ignore-dir=.cache
+--ignore-dir=docs
+--ignore-dir=build

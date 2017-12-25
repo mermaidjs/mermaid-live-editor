@@ -22,7 +22,7 @@ yarn install
 
 ```
 yarn dev
-open http://localhost:8080
+open http://localhost:1234
 ```
 
 This app is created with React + React Router v4.

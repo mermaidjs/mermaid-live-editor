@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'mermaid'
+import 'antd/dist/antd.css'
 
 import App from './components/App'
 import './index.css'
