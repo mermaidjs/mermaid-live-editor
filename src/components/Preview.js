@@ -10,10 +10,12 @@ class Preview extends React.Component {
     super(props)
     this.onDownloadSVG = this.onDownloadSVG.bind(this)
   }
+
   onDownloadSVG (event) {
     event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
+
   render () {
     const { code, match: { url } } = this.props
     return <div>
@@ -26,6 +28,7 @@ class Preview extends React.Component {
       </div>
     </div>
   }
+
   initMermaid () {
     const { code, history, match: { url } } = this.props
     try {
@@ -36,9 +39,11 @@ class Preview extends React.Component {
       history.push(`${url}/error/${base64}`)
     }
   }
+
   componentDidMount () {
     this.initMermaid()
   }
+
   componentDidUpdate () {
     this.container.removeAttribute('data-processed')
     this.container.innerHTML = this.props.code
