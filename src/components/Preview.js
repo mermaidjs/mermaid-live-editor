@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider } from 'antd'
+import { Divider, Card } from 'antd'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import { Base64 } from 'js-base64'
@@ -19,13 +19,16 @@ class Preview extends React.Component {
   render () {
     const { code, match: { url } } = this.props
     return <div>
-      <div ref={div => { this.container = div }}>{code}</div>
-      <div className='separator' />
-      <div className='links'>
-        <Link to={url.replace('/edit/', '/view/')}>Link to View</Link>
-        <Divider type='vertical' />
-        <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
-      </div>
+      <Card title='Preview'>
+        <div ref={div => { this.container = div }}>{code}</div>
+      </Card>
+      <Card title='Actions'>
+        <div className='links'>
+          <Link to={url.replace('/edit/', '/view/')}>Link to View</Link>
+          <Divider type='vertical' />
+          <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
+        </div>
+      </Card>
     </div>
   }
 

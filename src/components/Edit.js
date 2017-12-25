@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Input, Icon, Tag, Affix } from 'antd'
+import { Row, Col, Input, Icon, Tag, Affix, Select, Card, Divider } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
 
@@ -32,25 +32,30 @@ class Edit extends React.Component {
     const code = base64 === 'blank' ? '' : Base64.decode(base64)
     return <div>
       <h1>Mermaid Live Editor</h1>
-      <div className='separator' />
+      <Divider />
       <Row gutter={16}>
-        <Col span={6}>
+        <Col span={8}>
           <Affix>
-            <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+            <Card title='Code'>
+              <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+            </Card>
           </Affix>
-          <div className='separator' />
-          <ul className='marketing-links'>
-            <li><a href='https://mermaidjs.github.io/' target='_blank'><Icon type='book' /> Mermaid Documentation</a></li>
-            <li><a href='https://github.com/knsv/mermaid' target='_blank'><Icon type='github' /> Mermaid on GitHub</a></li>
-            <li><a href='https://github.com/mermaidjs/mermaid-gitbook' target='_blank'><Icon type='github' /> Documentation on GitHub</a></li>
-            <li><a href='https://github.com/mermaidjs/mermaid-live-editor' target='_blank'><Icon type='github' /> Live Editor on GitHub</a></li>
-          </ul>
-          <div className='separator' />
-          <h3>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
+          <Card title='Theme'>
+            <Select style={{ width: '100%' }}><Select.Option value='default'>default</Select.Option></Select>
+          </Card>
+          <Card title='Links'>
+            <ul className='marketing-links'>
+              <li><a href='https://mermaidjs.github.io/' target='_blank'><Icon type='book' /> Mermaid Documentation</a></li>
+              <li><a href='https://github.com/knsv/mermaid' target='_blank'><Icon type='github' /> Mermaid on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid-gitbook' target='_blank'><Icon type='github' /> Documentation on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid-live-editor' target='_blank'><Icon type='github' /> Live Editor on GitHub</a></li>
+            </ul>
+          </Card>
         </Col>
-        <Col span={18}>
+        <Col span={16}>
           <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
           <Route path={url + '/error/:base64'} component={Error} />
+          <h3 style={{ textAlign: 'right' }}>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
         </Col>
       </Row>
     </div>

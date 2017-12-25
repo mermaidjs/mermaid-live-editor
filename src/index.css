@@ -2,11 +2,10 @@ html, body {
   padding: 16px;
 }
 
-.separator {
-  border-bottom: 1px dotted gray;
-  margin: 16px 0;
-}
-
 .marketing-links {
   font-size: 16px;
+}
+
+.ant-card {
+  margin-bottom: 16px;
 }
