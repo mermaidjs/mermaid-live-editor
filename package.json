@@ -7,7 +7,7 @@
     "test": "standard && jest --coverage",
     "test:watch": "yarn test --watch",
     "dev": "parcel ./index.html -d build",
-    "release": "parcel build ./index.html -d docs"
+    "release": "parcel build ./index.html -d docs --public-url ./"
   },
   "dependencies": {
     "antd": "^3.0.3",
