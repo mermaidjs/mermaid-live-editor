@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'mermaid'
+import mermaid from 'mermaid'
 import 'antd/dist/antd.css'
 
 import App from './components/App'
 import './index.css'
 
-window.mermaid_config = { theme: 'forest' }
+mermaid.initialize({ theme: 'forest' })
 
 ReactDOM.render(<App />, document.getElementById('root'))
