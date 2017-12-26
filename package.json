@@ -12,6 +12,7 @@
   "dependencies": {
     "antd": "^3.0.3",
     "js-base64": "^2.4.0",
+    "js-cookie": "^2.2.0",
     "mermaid": "^7.1.1",
     "moment": "^2.20.1",
     "react": "^16.2.0",

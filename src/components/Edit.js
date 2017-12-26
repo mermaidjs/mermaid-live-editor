@@ -2,6 +2,8 @@ import React from 'react'
 import { Row, Col, Input, Icon, Tag, Affix, Select, Card, Divider } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
+import Cookies from 'js-cookie'
+import mermaid from 'mermaid'
 
 import Error from './Error'
 import Preview from './Preview'
@@ -16,6 +18,11 @@ class Edit extends React.Component {
   constructor (props) {
     super(props)
     this.onChange = this.onChange.bind(this)
+    const theme = Cookies.get('theme') || 'default'
+    this.state = {
+      theme
+    }
+    mermaid.initialize({ theme })
   }
 
   onChange (event) {
@@ -37,11 +44,20 @@ class Edit extends React.Component {
         <Col span={8}>
           <Affix>
             <Card title='Code'>
-              <Input.TextArea rows={16} value={code} onChange={this.onChange} />
+              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={code} onChange={this.onChange} />
             </Card>
           </Affix>
           <Card title='Theme'>
-            <Select style={{ width: '100%' }}><Select.Option value='default'>default</Select.Option></Select>
+            <Select style={{ width: '100%' }} value={this.state.theme} onChange={value => {
+              this.setState({ theme: value })
+              Cookies.set('theme', value)
+              window.location.reload(false)
+            }}>
+              <Select.Option value='default'>default</Select.Option>
+              <Select.Option value='forest'>forest</Select.Option>
+              <Select.Option value='dark'>dark</Select.Option>
+              <Select.Option value='neutral'>neutral</Select.Option>
+            </Select>
           </Card>
           <Card title='Links'>
             <ul className='marketing-links'>
