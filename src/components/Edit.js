@@ -2,7 +2,6 @@ import React from 'react'
 import { Row, Col, Input, Icon, Tag, Affix, Select, Card, Divider } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
-import Cookies from 'js-cookie'
 import mermaid from 'mermaid'
 
 import Error from './Error'
@@ -19,7 +18,10 @@ class Edit extends React.Component {
     super(props)
     this.onCodeChange = this.onCodeChange.bind(this)
     this.onThemeChange = this.onThemeChange.bind(this)
-    const theme = Cookies.get('theme') || 'default'
+
+    const search = props.location.search
+    const params = new window.URLSearchParams(search)
+    const theme = params.get('theme') || 'default'
     this.state = {
       theme
     }
@@ -36,8 +38,12 @@ class Edit extends React.Component {
   }
 
   onThemeChange (value) {
-    this.setState({ theme: value })
-    Cookies.set('theme', value)
+    const { history, match: { path, params: { base64 } } } = this.props
+    if (value === 'default') {
+      history.push(path.replace(':base64', base64))
+    } else {
+      history.push(path.replace(':base64', base64) + `?theme=${value}`)
+    }
     window.location.reload(false)
   }
 

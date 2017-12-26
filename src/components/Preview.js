@@ -17,14 +17,14 @@ class Preview extends React.Component {
   }
 
   render () {
-    const { code, match: { url } } = this.props
+    const { code, match: { url }, location: { search } } = this.props
     return <div>
       <Card title='Preview'>
         <div ref={div => { this.container = div }}>{code}</div>
       </Card>
       <Card title='Actions'>
         <div className='links'>
-          <Link to={url.replace('/edit/', '/view/')}>Link to View</Link>
+          <Link to={url.replace('/edit/', '/view/') + search}>Link to View</Link>
           <Divider type='vertical' />
           <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
         </div>

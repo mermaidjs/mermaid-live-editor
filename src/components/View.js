@@ -10,6 +10,10 @@ class View extends React.Component {
   }
 
   componentDidMount () {
+    const search = this.props.location.search
+    const params = new window.URLSearchParams(search)
+    const theme = params.get('theme') || 'default'
+    mermaid.initialize({ theme })
     mermaid.init(undefined, this.container)
   }
 }
