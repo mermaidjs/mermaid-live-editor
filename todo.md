@@ -5,3 +5,4 @@
     - trigger a syntax error to see how the padding changes
     - should rewrite mermaid inline style generation code
 - Turn it into a dynamic website. Save user's data.
+- Specify theme via url

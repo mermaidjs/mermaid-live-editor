@@ -17,7 +17,8 @@ if (mermaidVersion[0] === '^') {
 class Edit extends React.Component {
   constructor (props) {
     super(props)
-    this.onChange = this.onChange.bind(this)
+    this.onCodeChange = this.onCodeChange.bind(this)
+    this.onThemeChange = this.onThemeChange.bind(this)
     const theme = Cookies.get('theme') || 'default'
     this.state = {
       theme
@@ -25,13 +26,19 @@ class Edit extends React.Component {
     mermaid.initialize({ theme })
   }
 
-  onChange (event) {
+  onCodeChange (event) {
     const { history, match: { path } } = this.props
     let base64 = Base64.encodeURI(event.target.value)
     if (base64 === '') {
       base64 = 'blank'
     }
     history.push(path.replace(':base64', base64))
+  }
+
+  onThemeChange (value) {
+    this.setState({ theme: value })
+    Cookies.set('theme', value)
+    window.location.reload(false)
   }
 
   render () {
@@ -44,15 +51,11 @@ class Edit extends React.Component {
         <Col span={8}>
           <Affix>
             <Card title='Code'>
-              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={code} onChange={this.onChange} />
+              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={code} onChange={this.onCodeChange} />
             </Card>
           </Affix>
           <Card title='Theme'>
-            <Select style={{ width: '100%' }} value={this.state.theme} onChange={value => {
-              this.setState({ theme: value })
-              Cookies.set('theme', value)
-              window.location.reload(false)
-            }}>
+            <Select style={{ width: '100%' }} value={this.state.theme} onChange={this.onThemeChange}>
               <Select.Option value='default'>default</Select.Option>
               <Select.Option value='forest'>forest</Select.Option>
               <Select.Option value='dark'>dark</Select.Option>
