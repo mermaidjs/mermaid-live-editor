@@ -10,8 +10,8 @@
     "release": "parcel build ./index.html -d docs --public-url ./"
   },
   "dependencies": {
-    "antd": "^3.1.1",
-    "js-base64": "^2.4.0",
+    "antd": "^3.1.6",
+    "js-base64": "^2.4.3",
     "mermaid": "^7.1.2",
     "moment": "^2.20.1",
     "react": "^16.2.0",
@@ -24,8 +24,8 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^22.0.5",
-    "parcel-bundler": "^1.4.1",
+    "jest": "^22.1.4",
+    "parcel-bundler": "^1.5.1",
     "standard": "^10.0.3",
     "yarn-upgrade-all": "^0.3.0"
   },
