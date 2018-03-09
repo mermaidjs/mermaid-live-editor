@@ -10,10 +10,10 @@
     "release": "parcel build ./index.html -d docs --public-url ./"
   },
   "dependencies": {
-    "antd": "^3.1.6",
+    "antd": "^3.2.3",
     "js-base64": "^2.4.3",
     "mermaid": "^7.1.2",
-    "moment": "^2.20.1",
+    "moment": "^2.21.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
@@ -24,9 +24,9 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^22.1.4",
-    "parcel-bundler": "^1.5.1",
-    "standard": "^10.0.3",
+    "jest": "^22.4.2",
+    "parcel-bundler": "^1.6.2",
+    "standard": "^11.0.0",
     "yarn-upgrade-all": "^0.3.0"
   },
   "standard": {
