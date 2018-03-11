@@ -4265,9 +4265,9 @@ merge@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
 
-mermaid@^8.0.0-alpha.1:
-  version "8.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.0.0-alpha.1.tgz#141f51863f7fca36ad09f244c02a3454566b26f4"
+mermaid@8.0.0-alpha.3:
+  version "8.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.0.0-alpha.3.tgz#26507bcafec3b70ed79e3fba6e47d1275674ab09"
   dependencies:
     d3 "^4.13.0"
     dagre-d3-renderer "^0.5.1"
@@ -4276,6 +4276,7 @@ mermaid@^8.0.0-alpha.1:
     he "^1.1.1"
     lodash "^4.17.5"
     moment "^2.21.0"
+    scope-css "^1.0.5"
 
 micromatch@^2.1.5, micromatch@^2.3.11:
   version "2.3.11"
@@ -6268,6 +6269,10 @@ sanitize-filename@^1.6.1:
 sax@^1.2.4, sax@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+scope-css@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/scope-css/-/scope-css-1.0.5.tgz#9a40a959231ecf683dbef3dedae6a26ab091e1fd"
 
 "semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.4.1, semver@^5.5.0:
   version "5.5.0"
