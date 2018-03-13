@@ -25,7 +25,7 @@ class Edit extends React.Component {
     this.state = {
       theme
     }
-    mermaid.initialize({ theme })
+    mermaid.initialize({ theme, logLevel: 3 })
   }
 
   onCodeChange (event) {

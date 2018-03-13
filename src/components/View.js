@@ -13,7 +13,7 @@ class View extends React.Component {
     const search = this.props.location.search
     const params = new window.URLSearchParams(search)
     const theme = params.get('theme') || 'default'
-    mermaid.initialize({ theme })
+    mermaid.initialize({ theme, logLevel: 3 })
     mermaid.init(undefined, this.container)
   }
 }
