@@ -12,7 +12,7 @@
   "dependencies": {
     "antd": "^3.3.0",
     "js-base64": "^2.4.3",
-    "mermaid": "^8.0.0-alpha.9",
+    "mermaid": "^8.0.0-beta.5",
     "moment": "^2.21.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -26,7 +26,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.4.2",
     "parcel-bundler": "^1.6.2",
-    "standard": "^11.0.0",
+    "standard": "^11.0.1",
     "yarn-upgrade-all": "^0.3.0"
   },
   "standard": {
