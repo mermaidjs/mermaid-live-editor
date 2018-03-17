@@ -1941,9 +1941,9 @@ d3@^4.13.0:
     d3-voronoi "1.1.2"
     d3-zoom "1.7.1"
 
-dagre-d3-renderer@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/dagre-d3-renderer/-/dagre-d3-renderer-0.5.1.tgz#a0996ed436f13ae9fdb8ac526c3a921e03fa8462"
+dagre-d3-renderer@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/dagre-d3-renderer/-/dagre-d3-renderer-0.5.3.tgz#fef1a6c254a2c5945fbeb5257370ec32fe98d980"
   dependencies:
     dagre-layout "^0.8.6"
     lodash "^4.17.5"
@@ -4292,12 +4292,12 @@ merge@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
 
-mermaid@^8.0.0-beta.5:
-  version "8.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.0.0-beta.5.tgz#70960cb003322a6378f3841085019bba9fb5fcc3"
+mermaid@^8.0.0-beta.6:
+  version "8.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.0.0-beta.6.tgz#ec4b7045f7e27549db71eed1e3fe44ee61c87ba0"
   dependencies:
     d3 "^4.13.0"
-    dagre-d3-renderer "^0.5.1"
+    dagre-d3-renderer "^0.5.3"
     dagre-layout "^0.8.6"
     graphlibrary "^2.2.0"
     he "^1.1.1"
