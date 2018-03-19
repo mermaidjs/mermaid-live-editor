@@ -12,7 +12,7 @@ class Preview extends React.Component {
   }
 
   onDownloadSVG (event) {
-    event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML.replace(/<br>/ig, '<br/>'))}`
+    event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
 
