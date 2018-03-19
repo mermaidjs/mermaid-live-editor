@@ -1,8 +1,7 @@
 import { Base64 } from 'js-base64'
 
-export const base64ToState = base64 => {
+export const base64ToState = (base64, search) => {
   // for backward compatibility
-  const search = this.props.location.search
   const params = new window.URLSearchParams(search)
   const themeFromUrl = params.get('theme') || 'default'
 
@@ -11,10 +10,22 @@ export const base64ToState = base64 => {
   try {
     state = JSON.parse(str)
     if (state.code === undefined) { // not valid json
-      state = { code: str, theme: themeFromUrl }
+      state = { code: str, mermaid: { theme: themeFromUrl } }
     }
   } catch (e) {
-    state = { code: str, theme: themeFromUrl }
+    state = { code: str, mermaid: { theme: themeFromUrl } }
   }
   return state
+}
+
+const defaultCode = `graph TD
+A[Christmas] -->|Get money| B(Go shopping)
+B --> C{Let me think}
+C -->|One| D[Laptop]
+C -->|Two| E[iPhone]
+C -->|Three| F[Car]
+`
+export const defaultState = {
+  code: defaultCode,
+  mermaid: { theme: 'default' }
 }

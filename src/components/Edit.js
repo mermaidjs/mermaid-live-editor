@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Input, Icon, Tag, Affix, Select, Card, Divider } from 'antd'
+import { Row, Col, Input, Icon, Tag, Affix, Card, Divider } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
 import mermaid from 'mermaid'
@@ -7,6 +7,7 @@ import mermaid from 'mermaid'
 import Error from './Error'
 import Preview from './Preview'
 import pkg from '../../package.json'
+import { base64ToState } from '../utils'
 
 let mermaidVersion = pkg.dependencies.mermaid
 if (mermaidVersion[0] === '^') {
@@ -17,39 +18,21 @@ class Edit extends React.Component {
   constructor (props) {
     super(props)
     this.onCodeChange = this.onCodeChange.bind(this)
-    this.onThemeChange = this.onThemeChange.bind(this)
 
-    const search = props.location.search
-    const params = new window.URLSearchParams(search)
-    const theme = params.get('theme') || 'default'
-    this.state = {
-      theme
-    }
-    mermaid.initialize({ theme, logLevel: 3 })
+    const { match: { params: { base64 } }, location: { search } } = this.props
+    this.json = base64ToState(base64, search)
+    mermaid.initialize(this.json.mermaid)
   }
 
   onCodeChange (event) {
     const { history, match: { path } } = this.props
-    let base64 = Base64.encodeURI(event.target.value)
-    if (base64 === '') {
-      base64 = 'blank'
-    }
+    this.json.code = event.target.value
+    const base64 = Base64.encodeURI(JSON.stringify(this.json))
     history.push(path.replace(':base64', base64))
   }
 
-  onThemeChange (value) {
-    const { history, match: { path, params: { base64 } } } = this.props
-    if (value === 'default') {
-      history.push(path.replace(':base64', base64))
-    } else {
-      history.push(path.replace(':base64', base64) + `?theme=${value}`)
-    }
-    window.location.reload(false)
-  }
-
   render () {
-    const { match: { url, params: { base64 } } } = this.props
-    const code = base64 === 'blank' ? '' : Base64.decode(base64)
+    const { match: { url } } = this.props
     return <div>
       <h1>Mermaid Live Editor</h1>
       <Divider />
@@ -57,16 +40,11 @@ class Edit extends React.Component {
         <Col span={8}>
           <Affix>
             <Card title='Code'>
-              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={code} onChange={this.onCodeChange} />
+              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={this.json.code} onChange={this.onCodeChange} />
             </Card>
           </Affix>
-          <Card title='Theme'>
-            <Select style={{ width: '100%' }} value={this.state.theme} onChange={this.onThemeChange}>
-              <Select.Option value='default'>default</Select.Option>
-              <Select.Option value='forest'>forest</Select.Option>
-              <Select.Option value='dark'>dark</Select.Option>
-              <Select.Option value='neutral'>neutral</Select.Option>
-            </Select>
+          <Card title='Mermaid configuration'>
+            Mermaid configuration
           </Card>
           <Card title='Links'>
             <ul className='marketing-links'>
@@ -78,7 +56,7 @@ class Edit extends React.Component {
           </Card>
         </Col>
         <Col span={16}>
-          <Route exact path={url} render={(props) => <Preview {...props} code={code} />} />
+          <Route exact path={url} render={(props) => <Preview {...props} code={this.json.code} />} />
           <Route path={url + '/error/:base64'} component={Error} />
           <h3 style={{ textAlign: 'right' }}>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
         </Col>

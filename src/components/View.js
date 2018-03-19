@@ -6,8 +6,8 @@ import { base64ToState } from '../utils'
 class View extends React.Component {
   constructor (props) {
     super(props)
-    const { match: { params: { base64 } } } = props
-    this.state = base64ToState(base64)
+    const { match: { params: { base64 } }, location: { search } } = props
+    this.state = base64ToState(base64, search)
   }
 
   render () {
@@ -15,7 +15,7 @@ class View extends React.Component {
   }
 
   componentDidMount () {
-    mermaid.initialize({ theme: this.state.theme, logLevel: 3 })
+    mermaid.initialize(this.state.mermaid)
     mermaid.init(undefined, this.container)
   }
 }

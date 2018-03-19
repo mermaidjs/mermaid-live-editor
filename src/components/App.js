@@ -4,19 +4,7 @@ import { Base64 } from 'js-base64'
 
 import Edit from './Edit'
 import View from './View'
-
-export const defaultCode = `graph TD
-A[Christmas] -->|Get money| B(Go shopping)
-B --> C{Let me think}
-C -->|One| D[Laptop]
-C -->|Two| E[iPhone]
-C -->|Three| F[Car]
-`
-
-const defaultState = {
-  code: defaultCode,
-  theme: 'default'
-}
+import { defaultState } from '../utils'
 
 class App extends React.Component {
   render () {
