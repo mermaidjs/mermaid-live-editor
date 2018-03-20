@@ -37,8 +37,8 @@ class Preview extends React.Component {
     try {
       mermaid.parse(code)
       mermaid.init(undefined, this.container)
-    } catch ({str, hash}) {
-      const base64 = Base64.encodeURI(str)
+    } catch (e) { // {str, hash}
+      const base64 = Base64.encodeURI(e.str || e.message)
       history.push(`${url}/error/${base64}`)
     }
   }
