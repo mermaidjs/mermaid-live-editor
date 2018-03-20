@@ -4292,9 +4292,9 @@ merge@^1.1.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
 
-mermaid@^8.0.0-rc.4:
-  version "8.0.0-rc.4"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.0.0-rc.4.tgz#10a09cf75cd5774060f42b585ff9ac4e8f2ad79a"
+mermaid@^8.0.0-rc.5:
+  version "8.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.0.0-rc.5.tgz#6ee151df1bd45e0223de583e9593241a692c892c"
   dependencies:
     d3 "^4.13.0"
     dagre-d3-renderer "^0.5.6"
