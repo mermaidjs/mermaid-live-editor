@@ -6,9 +6,11 @@ import { Input } from 'antd'
 import Adapter from 'enzyme-adapter-react-16'
 import 'mermaid'
 
-import App, { defaultCode } from '../src/components/App'
+import App from '../src/components/App'
+import { defaultState } from '../src/utils'
 
 configure({ adapter: new Adapter() })
+const defaultCode = defaultState.code
 
 let wrapper = null
 beforeEach(() => {
