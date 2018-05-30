@@ -4,10 +4,11 @@
   "license": "MIT",
   "scripts": {
     "upgrade": "yarn-upgrade-all",
-    "test": "standard && jest --coverage",
+    "test": "standard && jest",
     "test:watch": "yarn test --watch",
     "dev": "parcel ./index.html -d build",
-    "release": "parcel build ./index.html -d docs --public-url ./"
+    "release": "parcel build ./index.html -d docs --public-url ./",
+    "prepush": "yarn test"
   },
   "dependencies": {
     "antd": "^3.5.4",
@@ -20,10 +21,10 @@
   },
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.14.3",
     "jest": "^23.0.1",
     "parcel-bundler": "^1.8.1",
     "standard": "^11.0.1",

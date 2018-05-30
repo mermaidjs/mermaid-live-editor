@@ -6,7 +6,8 @@ import { Input } from 'antd'
 import Adapter from 'enzyme-adapter-react-16'
 import 'mermaid'
 
-import App, { defaultCode } from '../src/components/App'
+import App from '../src/components/App'
+import { defaultState } from '../src/utils'
 
 configure({ adapter: new Adapter() })
 
@@ -23,10 +24,10 @@ const verifyTextArea = (code) => {
 
 const verifyLinks = (code) => {
   const links = wrapper.find('.marketing-links').find('li')
-  expect(links.length).toEqual(4)
+  expect(links.length).toEqual(5)
 }
 
 test('/', () => {
-  verifyTextArea(defaultCode)
-  verifyLinks(defaultCode)
+  verifyTextArea(defaultState.code)
+  verifyLinks(defaultState.code)
 })
