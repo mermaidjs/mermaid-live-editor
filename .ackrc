@@ -1,4 +1,5 @@
 --ignore-file=match:/^yarn\.lock$/
+--ignore-file=match:/^yarn-error\.log$/
 --ignore-dir=coverage
 --ignore-dir=.cache
 --ignore-dir=docs
