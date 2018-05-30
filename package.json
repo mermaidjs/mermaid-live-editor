@@ -11,6 +11,7 @@
     "prepush": "yarn test"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "antd": "^3.5.4",
     "js-base64": "^2.4.5",
     "mermaid": "^8.0.0-rc.8",
