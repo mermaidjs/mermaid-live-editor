@@ -1,3 +1,5 @@
+/* global Image */
+
 import React from 'react'
 import { Divider, Card } from 'antd'
 import { Link } from 'react-router-dom'
@@ -9,11 +11,33 @@ class Preview extends React.Component {
   constructor (props) {
     super(props)
     this.onDownloadSVG = this.onDownloadSVG.bind(this)
+    this.onDownloadPNG = this.onDownloadPNG.bind(this)
   }
 
   onDownloadSVG (event) {
     event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
+  }
+
+  onDownloadPNG (event) {
+    var canvas = document.createElement('canvas')
+    canvas.width = 500
+    canvas.height = 400
+    const context = canvas.getContext('2d')
+
+    var image = new Image()
+    image.onload = function () {
+      context.drawImage(image, 0, 0)
+
+      var a = document.createElement('a')
+      a.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.png`
+      a.href = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+      a.click()
+    }
+
+    image.src = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
+    event.stopPropagation()
+    event.preventDefault()
   }
 
   render () {
@@ -27,6 +51,8 @@ class Preview extends React.Component {
           <Link to={url.replace('/edit/', '/view/')}>Link to View</Link>
           <Divider type='vertical' />
           <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
+          <Divider type='vertical' />
+          <a href='' download='' onClick={this.onDownloadPNG}>Download PNG</a>
         </div>
       </Card>
     </div>
