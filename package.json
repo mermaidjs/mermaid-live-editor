@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "upgrade": "yarn-upgrade-all",
     "test": "standard && jest",
     "test:watch": "yarn test --watch",
     "dev": "parcel ./index.html -d build",
