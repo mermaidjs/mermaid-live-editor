@@ -21,13 +21,14 @@
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^0.14.3",
     "jest": "^23.0.1",
-    "parcel-bundler": "^1.8.1",
+    "parcel-bundler": "^1.11.0",
     "standard": "^11.0.1",
     "yarn-upgrade-all": "^0.3.0"
   },
