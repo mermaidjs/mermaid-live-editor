@@ -11,25 +11,25 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
-    "antd": "^3.5.4",
-    "js-base64": "^2.4.5",
-    "mermaid": "^8.0.0-rc.8",
-    "moment": "^2.22.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-router-dom": "^4.2.2"
+    "antd": "^3.11.2",
+    "js-base64": "^2.5.0",
+    "mermaid": "^8.0.0",
+    "moment": "^2.23.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "husky": "^0.14.3",
-    "jest": "^23.0.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "husky": "^1.2.1",
+    "jest": "^23.6.0",
     "parcel-bundler": "^1.11.0",
-    "standard": "^11.0.1",
-    "yarn-upgrade-all": "^0.3.0"
+    "standard": "^12.0.1",
+    "yarn-upgrade-all": "^0.5.0"
   },
   "standard": {
     "ignore": [
