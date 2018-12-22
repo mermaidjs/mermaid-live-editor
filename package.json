@@ -6,8 +6,7 @@
     "test": "standard && jest",
     "test:watch": "yarn test --watch",
     "dev": "parcel ./index.html -d build",
-    "release": "parcel build ./index.html -d docs --public-url ./",
-    "prepush": "yarn test"
+    "release": "parcel build ./index.html -d docs --public-url ./"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
@@ -36,5 +35,10 @@
       "*.bundle.js",
       "docs/"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
   }
 }
