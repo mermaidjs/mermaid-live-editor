@@ -26,6 +26,8 @@ class Preview extends React.Component {
         <div className='links'>
           <Link to={url.replace('/edit/', '/view/')}>Link to View</Link>
           <Divider type='vertical' />
+          <a href={`https://mermaid.ink/${Base64.encodeURI(code)}`}>Link to Image</a>
+          <Divider type='vertical' />
           <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
         </div>
       </Card>
