@@ -13,6 +13,8 @@ Edit, preview and share mermaid charts/diagrams.
 
 ## Setup
 
+Setup is simple.
+
 ```
 yarn install
 ```
