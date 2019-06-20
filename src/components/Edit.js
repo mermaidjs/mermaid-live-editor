@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Input, Icon, Tag, Affix, Card, Divider } from 'antd'
+import { Row, Col, Input, Icon, Tag, Affix, Card, Divider, Button } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
 import mermaid from 'mermaid'
@@ -19,10 +19,17 @@ class Edit extends React.Component {
     super(props)
     this.onCodeChange = this.onCodeChange.bind(this)
     this.onMermaidConfigChange = this.onMermaidConfigChange.bind(this)
+    this.handlePreviousFrame = this.handlePreviousFrame.bind(this)
+    this.handleNextFrame = this.handleNextFrame.bind(this)
+    this.handlePlay = this.handlePlay.bind(this)
 
     const { match: { params: { base64 } }, location: { search } } = this.props
     this.json = base64ToState(base64, search)
     mermaid.initialize(this.json.mermaid)
+
+    this.state = {
+      animationPosition: 2
+    }
   }
 
   onCodeChange (event) {
@@ -47,6 +54,18 @@ class Edit extends React.Component {
     }
   }
 
+  handlePreviousFrame () {
+    this.setState(function (state, props) { return { animationPosition: Math.max(2, state.animationPosition - 1) } })
+  }
+
+  handleNextFrame () {
+    this.setState(function (state, props) { return { animationPosition: Math.min(this.json.code.split('\n').length, state.animationPosition + 1) } })
+  }
+
+  handlePlay () {
+    setInterval(this.handleNextFrame, 2000)
+  }
+
   render () {
     const { match: { url } } = this.props
     return <div>
@@ -59,6 +78,9 @@ class Edit extends React.Component {
               <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={this.json.code} onChange={this.onCodeChange} />
             </Card>
           </Affix>
+          <Card title='Animation Controls'>
+            <Button onClick={this.handlePreviousFrame}>{'<'}</Button>{' '}<Button onClick={this.handlePlay}>Play</Button>{' '}<Button onClick={this.handleNextFrame}>{'>'}</Button>
+          </Card>
           <Card title='Mermaid configuration'>
             <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} defaultValue={JSON.stringify(this.json.mermaid, null, 2)} onChange={this.onMermaidConfigChange} />
           </Card>
@@ -73,7 +95,7 @@ class Edit extends React.Component {
           </Card>
         </Col>
         <Col span={16}>
-          <Route exact path={url} render={(props) => <Preview {...props} code={this.json.code} />} />
+          <Route exact path={url} render={(props) => <Preview {...props} code={this.state.animationPosition < 0 ? this.json.code : this.json.code.split('\n').slice(0, this.state.animationPosition).join('\n')} />} />
           <Route path={url + '/error/:base64'} component={Error} />
           <h3 style={{ textAlign: 'right' }}>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
         </Col>

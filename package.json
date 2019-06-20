@@ -9,7 +9,6 @@
     "release": "parcel build ./index.html -d docs --public-url ./"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "antd": "^3.11.2",
     "js-base64": "^2.5.0",
     "mermaid": "^8.0.0",
