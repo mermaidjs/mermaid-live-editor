@@ -144,7 +144,7 @@ class Edit extends React.Component {
     const { match: { url } } = this.props
     const { frame, frameDuration, playing } = this.state
     return <div>
-      <h1>Mermaid Live Editor</h1>
+      <h1>Mermaid Live Animated Editor</h1>
       <Divider />
       <Row gutter={16}>
         <Col span={8}>
