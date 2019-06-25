@@ -1,4 +1,4 @@
-# mermaid-live-editor
+# mermaid-live-animated-editor
 
 Edit, preview and share mermaid charts/diagrams.
 
