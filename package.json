@@ -1,6 +1,6 @@
 {
   "name": "mermaid-live-editor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "scripts": {
     "test": "standard && jest",
@@ -11,12 +11,21 @@
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "antd": "^3.11.2",
+    "d3": "^5.7.0",
+    "dagre-d3-renderer": "^0.5.8",
+    "dagre-layout": "^0.8.8",
+    "graphlibrary": "^2.2.0",
+    "he": "^1.2.0",
     "js-base64": "^2.5.0",
-    "mermaid": "^8.0.0",
+    "lodash": "^4.17.11",
+    "mermaid": "^8.1.0",
+    "minify": "^4.1.1",
     "moment": "^2.23.0",
+    "moment-mini": "^2.22.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "scope-css": "^1.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
