@@ -9,3 +9,7 @@ html, body {
 .ant-card {
   margin-bottom: 16px;
 }
+
+.code-editor {
+  font-family: monospace;
+}
