@@ -39,13 +39,13 @@ class Edit extends React.Component {
   }
 
   onKeyDown (event) {
-    const keyCode = event.keyCode || event.which;
+    const keyCode = event.keyCode || event.which
 
     // 9 is key code for TAB
     if (keyCode === 9) {
-        event.preventDefault();
-        const TAB_SIZE = 4;
-        document.execCommand('insertText', false, ' '.repeat(TAB_SIZE));
+      event.preventDefault()
+      const TAB_SIZE = 4
+      document.execCommand('insertText', false, ' '.repeat(TAB_SIZE))
     }
   }
 
