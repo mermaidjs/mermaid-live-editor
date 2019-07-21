@@ -6981,10 +6981,10 @@ merge@^1.2.0:
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
-mermaid@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.2.1.tgz#10c73c61e241665506ade98b9f3a9bbe321dea4c"
-  integrity sha512-5NDrqffnf++EN0GzLa86hfWZNjPZJJbT1dE2Kb5VcYbGReTmqO7VIyfx4Xp+ks1TxD+NJGOoS0ugapx0GkOJxQ==
+mermaid@^8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.2.2.tgz#f2ecfdf80c61ab3bf5a49d05777f4a768e878880"
+  integrity sha512-mhXX+pPkZ3BkzZIeIwXREV/4sZUq84PGpJMBPGRVpZE/GESsgw2d8plFzwr4lw62wCJ/atEGBRT1Jw95xhHN2g==
   dependencies:
     d3 "^5.7.0"
     dagre-d3-renderer "^0.5.8"

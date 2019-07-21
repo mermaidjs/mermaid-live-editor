@@ -6,17 +6,17 @@ import { Base64 } from 'js-base64'
 import mermaid from 'mermaid'
 
 class Preview extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.onDownloadSVG = this.onDownloadSVG.bind(this)
   }
 
-  onDownloadSVG(event) {
+  onDownloadSVG (event) {
     event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
 
-  render() {
+  render () {
     const { code, match: { url } } = this.props
     return <div>
       <Card title='Preview'>
@@ -32,7 +32,7 @@ class Preview extends React.Component {
     </div>
   }
 
-  initMermaid() {
+  initMermaid () {
     const { code, history, match: { url } } = this.props
     try {
       mermaid.parse(code)
@@ -43,11 +43,11 @@ class Preview extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.initMermaid()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     this.container.removeAttribute('data-processed')
     this.container.innerHTML = this.props.code
     this.initMermaid()
