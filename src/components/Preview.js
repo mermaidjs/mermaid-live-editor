@@ -49,7 +49,7 @@ class Preview extends React.Component {
 
   componentDidUpdate () {
     this.container.removeAttribute('data-processed')
-    this.container.innerHTML = this.props.code
+    this.container.innerHTML = this.props.code.replace('onerror=','onerror&equals;')
     this.initMermaid()
   }
 }
