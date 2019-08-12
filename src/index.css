@@ -1,11 +1,19 @@
 html, body {
   padding: 16px;
+  font-family: 'trebuchet ms', verdana, arial;
 }
 
+.mermaid {
+  /* font-family: 'trebuchet ms', verdana, arial; */
+}
 .marketing-links {
   font-size: 16px;
 }
 
 .ant-card {
   margin-bottom: 16px;
+}
+
+i {
+  font-size: 11px;
 }
