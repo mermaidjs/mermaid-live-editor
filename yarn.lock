@@ -2580,6 +2580,13 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto-random-string@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-3.0.1.tgz#29d7dc759d577a768afb3b7b2765dd9bd7ffe36a"
+  integrity sha512-dUL0cJ4PBLanJGJQBHQUkvZ3C4q13MXzl54oRqAIiJGiNkOZ4JDwkg/SBo7daGghzlJv16yW1p/4lIQukmbedA==
+  dependencies:
+    type-fest "^0.5.2"
+
 css-animation@1.x, css-animation@^1.3.2, css-animation@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/css-animation/-/css-animation-1.5.0.tgz#c96b9097a5ef74a7be8480b45cc44e4ec6ca2bf5"
@@ -5922,12 +5929,13 @@ merge@^1.2.0:
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
-mermaid@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.3.1.tgz#dbcc677e2077ce503f2b83aa13d33734a62d12bc"
-  integrity sha512-s3+IQJqpd++hplyz1DVmA68d1ZTUqr1R21EeQldPNtSpRwLuODqI0BxQAt0bI5oiet07lelqfs3FW4ewtIhfKQ==
+mermaid@^8.4.0:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.4.0.tgz#07052d143d43d36e76d7fe13dcc424852663dbed"
+  integrity sha512-YnFq/RhPZfheDlE7OuhbBx8VbPLyhfx5MsiXFPTsUW1K/C2zMnA9Tkljbrb0ABLPJAIhjijQgvBYn556CGWewg==
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
+    crypto-random-string "^3.0.1"
     d3 "^5.7.0"
     dagre-d3-renderer "^0.5.8"
     dagre-layout "^0.8.8"
@@ -9308,6 +9316,11 @@ type-check@~0.3.2:
   integrity sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
   dependencies:
     prelude-ls "~1.1.2"
+
+type-fest@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.5.2.tgz#d6ef42a0356c6cd45f49485c3b6281fc148e48a2"
+  integrity sha512-DWkS49EQKVX//Tbupb9TFa19c7+MK1XmzkrZUR8TAktmE/DizXoaoJV6TZ/tSIPXipqNiRI6CyAe7x69Jb6RSw==
 
 typedarray@^0.0.6:
   version "0.0.6"
