@@ -3,3 +3,4 @@ coverage/
 .cache/
 build/
 yarn-error.log
+.npmrc
