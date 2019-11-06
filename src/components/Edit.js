@@ -27,7 +27,7 @@ class Edit extends React.Component {
 
   onCodeChange (event) {
     const { history, match: { path } } = this.props
-    console.log('Code change');
+    console.log('Code change')
     this.json.code = event.target.value
     const base64 = Base64.encodeURI(JSON.stringify(this.json))
     history.push(path.replace(':base64', base64))
