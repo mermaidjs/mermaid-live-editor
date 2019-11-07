@@ -14,6 +14,7 @@
     "d3": "^5.7.0",
     "dagre-d3-renderer": "^0.5.8",
     "dagre-layout": "^0.8.8",
+    "fs": "^0.0.1-security",
     "graphlibrary": "^2.2.0",
     "he": "^1.2.0",
     "js-base64": "^2.5.0",
