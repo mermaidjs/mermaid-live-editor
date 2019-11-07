@@ -6,7 +6,6 @@ import { Base64 } from 'js-base64'
 import mermaid from 'mermaid'
 import { upload } from './uploader'
 
-
 class Preview extends React.Component {
   constructor (props) {
     super(props)
@@ -19,12 +18,12 @@ class Preview extends React.Component {
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
 
-  onDownloadImage (event) {    
+  onDownloadImage (event) {
     const svgObject = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
-    //console.log('Uploading SVG image now');
+    // console.log('Uploading SVG image now');
     event.target.href = upload(svgObject)
-    
-    event.target.download=`couple.jpg`;
+
+    event.target.download = `couple.jpg`
   }
 
   render () {
@@ -39,7 +38,7 @@ class Preview extends React.Component {
           <Divider type='vertical' />
           <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
           <Divider type='vertical' />
-          <a href='' download='' target='_blank' onClick={this.onDownloadImage}>Download Image</a>          
+          <a href='' download='' target='_blank' onClick={this.onDownloadImage}>Download Image</a>
         </div>
       </Card>
     </div>
