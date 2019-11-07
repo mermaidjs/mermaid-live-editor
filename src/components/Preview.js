@@ -57,6 +57,13 @@ class Preview extends React.Component {
     } = this.props
     try {
       mermaid.parse(code)
+      // Replacing special characters '<' and '>' with encoded '&lt;' and '&gt;'
+      let _code= code;
+      _code = _code.replace(/</g,'&lt;');
+      _code = _code.replace(/>/g,'&gt;');
+    
+     // Overriding the innerHTML with the updated code string 
+      this.container.innerHTML = _code;
       mermaid.init(undefined, this.container)
     } catch (e) {
       // {str, hash}
