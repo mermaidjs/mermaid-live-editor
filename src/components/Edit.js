@@ -83,7 +83,7 @@ class Edit extends React.Component {
                   autosize={{ minRows: 4, maxRows: 16 }}
                   value={this.json.code}
                   onChange={this.onCodeChange}
-                  onKeyDown={this.onKeyDown} 
+                  onKeyDown={this.onKeyDown}
                 />
               </Card>
             </Affix>
@@ -92,7 +92,7 @@ class Edit extends React.Component {
                 autosize={{ minRows: 4, maxRows: 16 }}
                 defaultValue={JSON.stringify(this.json.mermaid, null, 2)}
                 onChange={this.onMermaidConfigChange}
-                onKeyDown={this.onKeyDown} 
+                onKeyDown={this.onKeyDown}
               />
             </Card>
             <Card title='Links'>
