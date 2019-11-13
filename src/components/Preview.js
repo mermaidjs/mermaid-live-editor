@@ -13,17 +13,17 @@ class Preview extends React.Component {
     this.onDownloadImage = this.onDownloadImage.bind(this)
   }
 
-  onDownloadSVG (event) {
+  handleOnDownloadSVG (event) {
     event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
   }
 
-  onDownloadImage (event) {
+  handleOnDownloadImage (event) {
     const svgObject = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     // console.log('Uploading SVG image now');
     event.target.href = upload(svgObject)
 
-    event.target.download = `couple.jpg`
+    event.target.download = 'couple.jpg'
   }
 
   render () {
@@ -36,9 +36,9 @@ class Preview extends React.Component {
         <div className='links'>
           <Link to={url.replace('/edit/', '/view/')}>Link to View</Link>
           <Divider type='vertical' />
-          <a href='' download='' onClick={this.onDownloadSVG}>Download SVG</a>
+          <a href='' download='' onClick={this.handleOnDownloadSVG}>Download SVG</a>
           <Divider type='vertical' />
-          <a href='' download='' target='_blank' onClick={this.onDownloadImage}>Download Image</a>
+          <a href='' download='' target='_blank' onClick={this.handleOnDownloadImage}>Download Image</a>
         </div>
       </Card>
     </div>

@@ -9,7 +9,7 @@ export const upload = (svgImage) => {
 
 // *********** Upload file to Cloudinary ******************** //
 function uploadFile (svgImage) {
-  var url = `https://api.cloudinary.com/v1_1/akshayranganath/upload`
+  var url = 'https://api.cloudinary.com/v1_1/akshayranganath/upload'
 
   var xhr = new XMLHttpRequest() // eslint-disable-line
 

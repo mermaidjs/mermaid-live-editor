@@ -25,7 +25,7 @@ class Edit extends React.Component {
     mermaid.initialize(this.json.mermaid)
   }
 
-  onCodeChange (event) {
+  handleOnCodeChange (event) {
     const { history, match: { path } } = this.props
     console.log('Code change')
     this.json.code = event.target.value
@@ -33,7 +33,7 @@ class Edit extends React.Component {
     history.push(path.replace(':base64', base64))
   }
 
-  onMermaidConfigChange (event) {
+  handleOnMermaidConfigChange (event) {
     const str = event.target.value
     const { history, match: { path, url } } = this.props
     try {
@@ -57,19 +57,19 @@ class Edit extends React.Component {
         <Col span={8}>
           <Affix>
             <Card title='Code'>
-              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={this.json.code} onChange={this.onCodeChange} />
+              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={this.json.code} onChange={this.handleOnCodeChange} />
             </Card>
           </Affix>
           <Card title='Mermaid configuration'>
-            <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} defaultValue={JSON.stringify(this.json.mermaid, null, 2)} onChange={this.onMermaidConfigChange} />
+            <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} defaultValue={JSON.stringify(this.json.mermaid, null, 2)} onChange={this.handleOnMermaidConfigChange} />
           </Card>
           <Card title='Links'>
             <ul className='marketing-links'>
-              <li><a href='https://mermaidjs.github.io/' target='_blank'><Icon type='book' /> Mermaid Documentation</a></li>
-              <li><a href='https://github.com/knsv/mermaid' target='_blank'><Icon type='github' /> Mermaid on GitHub</a></li>
-              <li><a href='https://github.com/mermaidjs/mermaid-gitbook' target='_blank'><Icon type='github' /> Documentation on GitHub</a></li>
-              <li><a href='https://github.com/mermaidjs/mermaid-live-editor' target='_blank'><Icon type='github' /> Live Editor on GitHub</a></li>
-              <li><a href='https://github.com/mermaidjs/mermaid.cli' target='_blank'><Icon type='github' /> Mermaid CLI</a></li>
+              <li><a href='https://mermaidjs.github.io/' target='_blank' rel='noopener noreferrer'><Icon type='book' /> Mermaid Documentation</a></li>
+              <li><a href='https://github.com/knsv/mermaid' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Mermaid on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid-gitbook' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Documentation on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid-live-editor' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Live Editor on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid.cli' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Mermaid CLI</a></li>
             </ul>
           </Card>
         </Col>
