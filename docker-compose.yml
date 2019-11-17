@@ -1,10 +1,9 @@
-version: '3'
+version: "3.7"
 services:
-  web:
+  mermaid:
     build: .
-    command: yarn dev
-    volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
+    image: mermaidjs/mermaid-live-editor
+    container_name: mermaid
     ports:
-      - "1234:1234"
+      - 8000:8000/tcp
+    network_mode: bridge

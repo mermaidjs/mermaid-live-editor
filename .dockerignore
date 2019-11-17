@@ -1,2 +1,9 @@
+docs
+test
+.dockerignore
+.gitignore
+docker-compose.yml
+Dockerfile
+README.md
+todo.md
 node_modules
-npm-debug.log

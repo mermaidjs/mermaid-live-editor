@@ -19,6 +19,15 @@ Setup is simple.
 yarn install
 ```
 
+Or run an HTTP server with Docker
+
+```sh
+docker build -t mermaidjs/mermaid-live-editor https://github.com/mermaidjs/mermaid-live-editor.git
+docker run -d -p 8000:8000 mermaidjs/mermaid-live-editor
+```
+
+And access it at [http://localhost:8000](http://localhost:8000)
+
 
 ## Development
 
