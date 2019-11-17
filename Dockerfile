@@ -1,9 +1,13 @@
-FROM node:12
+FROM node:8.16.2 as builder
 
-WORKDIR /usr/app
+COPY . /opt
+WORKDIR /opt
 
-COPY package.json .
-
+RUN npm install yarn
 RUN yarn install
+RUN yarn release
 
-COPY . .
+FROM nginx:1.17.4-alpine
+
+COPY --from=builder /opt/docs /usr/share/nginx/html
+RUN chmod -R ugo+rw /usr/share/nginx/html
