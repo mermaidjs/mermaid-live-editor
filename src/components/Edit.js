@@ -17,8 +17,8 @@ if (mermaidVersion[0] === '^') {
 class Edit extends React.Component {
   constructor (props) {
     super(props)
-    this.onCodeChange = this.onCodeChange.bind(this)
-    this.onMermaidConfigChange = this.onMermaidConfigChange.bind(this)
+    this.handleOnCodeChange = this.handleOnCodeChange.bind(this)
+    this.handleOnMermaidConfigChange = this.handleOnMermaidConfigChange.bind(this)
 
     const { match: { params: { base64 } }, location: { search } } = this.props
     this.json = base64ToState(base64, search)

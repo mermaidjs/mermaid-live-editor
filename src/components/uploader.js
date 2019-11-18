@@ -4,12 +4,12 @@ export const upload = (svgImage) => {
 
   // const url = cloudinaryCore.url('couple');
 
-  return url.replace('.svg', '.png').replace('/upload/', '/upload/w_1024,h_768,c_scale,b_white/')
+  return url.replace('.svg', '.png').replace('/upload/', '/upload/b_white/l_cloudinary_icon,w_0.2,g_south_east,o_70/')
 }
 
 // *********** Upload file to Cloudinary ******************** //
 function uploadFile (svgImage) {
-  var url = 'https://api.cloudinary.com/v1_1/akshayranganath/upload'
+  var url = 'https://api.cloudinary.com/v1_1/mermaid/upload'
 
   var xhr = new XMLHttpRequest() // eslint-disable-line
 
@@ -17,7 +17,7 @@ function uploadFile (svgImage) {
   xhr.open('POST', url, false)
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
   // fd.append('public_id', publicId)
-  fd.append('upload_preset', 'testupload')
+  fd.append('upload_preset', 'mermaid')
   fd.append('tags', 'Mermaid') // Optional - add tag for image admin in Cloudinary
   fd.append('file', svgImage)
   xhr.send(fd)

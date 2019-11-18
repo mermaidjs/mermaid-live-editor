@@ -9,8 +9,8 @@ import { upload } from './uploader'
 class Preview extends React.Component {
   constructor (props) {
     super(props)
-    this.onDownloadSVG = this.onDownloadSVG.bind(this)
-    this.onDownloadImage = this.onDownloadImage.bind(this)
+    this.handleOnDownloadSVG = this.handleOnDownloadSVG.bind(this)
+    this.handleOnDownloadImage = this.handleOnDownloadImage.bind(this)
   }
 
   handleOnDownloadSVG (event) {
