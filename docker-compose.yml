@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  mermaid:
+    build: .
+    image: mermaidjs/mermaid-live-editor
+    container_name: mermaid
+    ports:
+      - 8000:8000/tcp
+    network_mode: bridge

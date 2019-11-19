@@ -5,6 +5,8 @@ import moment from 'moment'
 import { Base64 } from 'js-base64'
 import mermaid from 'mermaid'
 import { upload } from './uploader'
+//import mermaid from '@mermaid-js/mermaid'
+
 
 class Preview extends React.Component {
   constructor (props) {
@@ -16,6 +18,9 @@ class Preview extends React.Component {
   handleOnDownloadSVG (event) {
     event.target.href = `data:image/svg+xml;base64,${Base64.encode(this.container.innerHTML)}`
     event.target.download = `mermaid-diagram-${moment().format('YYYYMMDDHHmmss')}.svg`
+    event.target.download = `mermaid-diagram-${moment().format(
+      'YYYYMMDDHHmmss'
+    )}.svg`
   }
 
   handleOnDownloadImage (event) {
@@ -45,11 +50,22 @@ class Preview extends React.Component {
   }
 
   initMermaid () {
-    const { code, history, match: { url } } = this.props
+    const {
+      code,
+      history,
+      match: { url }
+    } = this.props
     try {
       mermaid.parse(code)
+      // Replacing special characters '<' and '>' with encoded '&lt;' and '&gt;'
+      let _code = code
+      _code = _code.replace(/</g, '&lt;')
+      _code = _code.replace(/>/g, '&gt;')
+      // Overriding the innerHTML with the updated code string
+      this.container.innerHTML = _code
       mermaid.init(undefined, this.container)
-    } catch (e) { // {str, hash}
+    } catch (e) {
+      // {str, hash}
       const base64 = Base64.encodeURI(e.str || e.message)
       history.push(`${url}/error/${base64}`)
     }
@@ -61,7 +77,10 @@ class Preview extends React.Component {
 
   componentDidUpdate () {
     this.container.removeAttribute('data-processed')
-    this.container.innerHTML = this.props.code.replace('onerror=', 'onerror&equals;')
+    this.container.innerHTML = this.props.code.replace(
+      'onerror=',
+      'onerror&equals;'
+    )
     this.initMermaid()
   }
 }
