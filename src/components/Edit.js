@@ -14,8 +14,8 @@ const mermaidVersion = pkg.version
 class Edit extends React.Component {
   constructor (props) {
     super(props)
-    this.onCodeChange = this.onCodeChange.bind(this)
-    this.onMermaidConfigChange = this.onMermaidConfigChange.bind(this)
+    this.handleOnCodeChange = this.handleOnCodeChange.bind(this)
+    this.handleOnMermaidConfigChange = this.handleOnMermaidConfigChange.bind(this)
 
     const {
       match: {
@@ -27,17 +27,14 @@ class Edit extends React.Component {
     mermaid.initialize(this.json.mermaid)
   }
 
-  onCodeChange (event) {
-    const {
-      history,
-      match: { path }
-    } = this.props
-    console.log('Code change')
+  handleOnCodeChange (event) {
+    const { history, match: { path } } = this.props
     this.json.code = event.target.value
     const base64 = Base64.encodeURI(JSON.stringify(this.json))
     history.push(path.replace(':base64', base64))
   }
 
+  handleOnMermaidConfigChange (event) {
   onKeyDown (event) {
     const keyCode = event.keyCode || event.which
 
@@ -68,6 +65,39 @@ class Edit extends React.Component {
   }
 
   render () {
+
+    const { match: { url } } = this.props
+    return <div>
+      <h1>Mermaid Live Editor</h1>
+      <Divider />
+      <Row gutter={16}>
+        <Col span={8}>
+          <Affix>
+            <Card title='Code'>
+              <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} value={this.json.code} onChange={this.handleOnCodeChange} />
+            </Card>
+          </Affix>
+          <Card title='Mermaid configuration'>
+            <Input.TextArea autosize={{ minRows: 4, maxRows: 16 }} defaultValue={JSON.stringify(this.json.mermaid, null, 2)} onChange={this.handleOnMermaidConfigChange} />
+          </Card>
+          <Card title='Links'>
+            <ul className='marketing-links'>
+              <li><a href='https://mermaidjs.github.io/' target='_blank' rel='noopener noreferrer'><Icon type='book' /> Mermaid Documentation</a></li>
+              <li><a href='https://github.com/knsv/mermaid' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Mermaid on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid-gitbook' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Documentation on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid-live-editor' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Live Editor on GitHub</a></li>
+              <li><a href='https://github.com/mermaidjs/mermaid.cli' target='_blank' rel='noopener noreferrer'><Icon type='github' /> Mermaid CLI</a></li>
+            </ul>
+          </Card>
+        </Col>
+        <Col span={16}>
+          <Route exact path={url} render={(props) => <Preview {...props} code={this.json.code} />} />
+          <Route path={url + '/error/:base64'} component={Error} />
+          <h3 style={{ textAlign: 'right' }}>Powered by mermaid <Tag color='green'>{mermaidVersion}</Tag></h3>
+        </Col>
+      </Row>
+    </div>
+
     const {
       match: { url }
     } = this.props
