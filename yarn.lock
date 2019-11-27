@@ -726,24 +726,6 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.3.tgz#f060bf6eaafae4d56a7dac618980838b0696e2ab"
   integrity "sha1-8GC/bqr65NVqfaxhiYCDiwaW4qs= sha512-FmuxfCuolpLl0AnQ2NHSzoUKWEJDFl63qXjzdoWBVyFCXzMGm1spBzk7LeHNoVCiWCF7mRVms9e6jEV9+MoPbg=="
 
-"@mermaid-js/mermaid@^8.4.1":
-  version "8.4.1-preview.787"
-  resolved "https://npm.pkg.github.com/download/@mermaid-js/mermaid/8.4.1-preview.787/2d77eacf7a53fd7d2066f1e9142a7fe58309e5b50c3e8ec7e5af875ccc334130#"
-  integrity sha512-/FP/eSusk21T5Hgv/6PcHInqDVQNqCB6xqriAjqkkL8E2zadnkxIha12nj40/bOKQRbfmVeLdXRPUyIIuNL8EQ==
-  dependencies:
-    "@braintree/sanitize-url" "^3.1.0"
-    crypto-random-string "^3.0.1"
-    d3 "^5.7.0"
-    dagre "^0.8.4"
-    dagre-d3 dagrejs/dagre-d3
-    graphlib "^2.1.7"
-    he "^1.2.0"
-    lodash "^4.17.11"
-    minify "^4.1.1"
-    moment-mini "^2.22.1"
-    prettier "^1.18.2"
-    scope-css "^1.2.1"
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -2964,7 +2946,6 @@ d3-zoom@1:
     d3-interpolate "1"
     d3-selection "1"
     d3-transition "1"
-
 
 d3@^5.12:
   version "5.12.0"
@@ -5936,6 +5917,24 @@ merge@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity "sha1-OL6/gMMiCopIe2/Ps5QbsRcgwUU= sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ=="
+
+mermaid@^8.4.2:
+  version "8.4.2"
+  resolved "http://pacman01.inkclub.local:4873/mermaid/-/mermaid-8.4.2.tgz#91d3d8e9541e72eed7a78d0e882db11564fab3bb"
+  integrity sha512-vYSCP2u4XkOnjliWz/QIYwvzF/znQAq22vWJJ3YV40SnwV2JQyHblnwwNYXCprkXw7XfwBKDpSNaJ3HP4WfnZw==
+  dependencies:
+    "@braintree/sanitize-url" "^3.1.0"
+    crypto-random-string "^3.0.1"
+    d3 "^5.7.0"
+    dagre "^0.8.4"
+    dagre-d3 dagrejs/dagre-d3
+    graphlib "^2.1.7"
+    he "^1.2.0"
+    lodash "^4.17.11"
+    minify "^4.1.1"
+    moment-mini "^2.22.1"
+    prettier "^1.18.2"
+    scope-css "^1.2.1"
 
 micromatch@^2.3.11:
   version "2.3.11"

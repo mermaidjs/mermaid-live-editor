@@ -2,11 +2,11 @@ import React from 'react'
 import { Row, Col, Input, Icon, Tag, Affix, Card, Divider } from 'antd'
 import { Route } from 'react-router-dom'
 import { Base64 } from 'js-base64'
-import mermaid from '@mermaid-js/mermaid'
+import mermaid from 'mermaid'
 
 import Error from './Error'
 import Preview from './Preview'
-import pkg from '@mermaid-js/mermaid/package.json'
+import pkg from 'mermaid/package.json'
 import { base64ToState } from '../utils'
 
 const mermaidVersion = pkg.version
@@ -73,7 +73,9 @@ class Edit extends React.Component {
     } = this.props
     return (
       <div>
-        <h1>Mermaid Live Editor</h1>
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+          <h1>Mermaid Live Editor</h1><div><a href="https://mermaid-js.github.io/mermaid-live-editor/">Try the new editor</a></div>
+        </div>
         <Divider />
         <Row gutter={16}>
           <Col span={8}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import mermaid from '@mermaid-js/mermaid'
+import mermaid from 'mermaid'
 
 import { base64ToState } from '../utils'
 

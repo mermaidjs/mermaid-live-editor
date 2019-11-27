@@ -3,7 +3,7 @@ import { Divider, Card } from 'antd'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import { Base64 } from 'js-base64'
-import mermaid from '@mermaid-js/mermaid'
+import mermaid from 'mermaid'
 
 class Preview extends React.Component {
   constructor (props) {

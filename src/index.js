@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'mermaid/src/themes/default/index.scss'
+// import 'mermaid/src/themes/default/index.scss'
 import 'antd/dist/antd.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css'
 import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css'
