@@ -31,6 +31,8 @@ And access it at [http://localhost:8000](http://localhost:8000)
 
 ## Development
 
+To serve locally (requires [parcel](https://parceljs.org/getting_started.html)):
+
 ```
 yarn dev
 open http://localhost:1234
