@@ -1,3 +1,6 @@
+
+# Development has moved to https://github.com/mermaid-js/mermaid-live-editor
+
 # mermaid-live-editor
 
 Edit, preview and share mermaid charts/diagrams.
