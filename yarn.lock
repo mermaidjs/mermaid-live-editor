@@ -839,9 +839,9 @@ acorn-walk@^6.0.1:
   integrity "sha1-Ejy487hMIXHx9/slJhWxx4prGow= sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA=="
 
 acorn@^5.0.0, acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity "sha1-Z6ojG/iBKXS4UjWpZ3Hra9B+onk= sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw=="
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.0.2, acorn@^6.0.4:
   version "6.3.0"
@@ -2947,10 +2947,10 @@ d3-zoom@1:
     d3-selection "1"
     d3-transition "1"
 
-d3@^5.12:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/d3/-/d3-5.12.0.tgz#0ddeac879c28c882317cd439b495290acd59ab61"
-  integrity sha512-flYVMoVuhPFHd9zVCe2BxIszUWqBcd5fvQGMNRmSiBrgdnh6Vlruh60RJQTouAK9xPbOB0plxMvBm4MoyODXNg==
+d3@^5.14:
+  version "5.15.0"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-5.15.0.tgz#ffd44958e6a3cb8a59a84429c45429b8bca5677a"
+  integrity sha512-C+E80SL2nLLtmykZ6klwYj5rPqB5nlfN5LdWEAVdWPppqTD8taoJi2PxLZjPeYT8FFRR2yucXq+kBlOnnvZeLg==
   dependencies:
     d3-array "1"
     d3-axis "1"
@@ -3029,13 +3029,14 @@ dagre-d3-renderer@^0.5.8:
     dagre-layout "^0.8.8"
     lodash "^4.17.5"
 
-"dagre-d3@github:dagrejs/dagre-d3":
-  version "0.6.4-pre"
-  resolved "https://codeload.github.com/dagrejs/dagre-d3/tar.gz/e1a00e5cb518f5d2304a35647e024f31d178e55b"
+dagre-d3@dagrejs/dagre-d3:
+  version "0.6.5-pre"
+  uid "397c2a9e1592b3ea464bbd50d209afb4562cc98c"
+  resolved "https://codeload.github.com/dagrejs/dagre-d3/tar.gz/397c2a9e1592b3ea464bbd50d209afb4562cc98c"
   dependencies:
-    d3 "^5.12"
-    dagre "^0.8.4"
-    graphlib "^2.1.7"
+    d3 "^5.14"
+    dagre "^0.8.5"
+    graphlib "^2.1.8"
     lodash "^4.17.15"
 
 dagre-layout@^0.8.8:
@@ -3053,6 +3054,14 @@ dagre@^0.8.4:
   dependencies:
     graphlib "^2.1.7"
     lodash "^4.17.4"
+
+dagre@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/dagre/-/dagre-0.8.5.tgz#ba30b0055dac12b6c1fcc247817442777d06afee"
+  integrity sha512-/aTqmnRta7x7MCCpExk7HQL2O4owCT2h8NT//9I1OQ9vt29Pa0BzSAkR5lwFUcQ7491yVi/3CXU9jQ5o0Mn2Sw==
+  dependencies:
+    graphlib "^2.1.8"
+    lodash "^4.17.15"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -4272,6 +4281,13 @@ graphlib@^2.1.7:
   integrity "sha1-tqafn0S9neOWPOaASi/J5z2Grsw= sha512-TyI9jIy2J4j0qgPmOOrHTCtpPqJGN/aurBwc6ZT+bRii+di1I+Wv3obRhVrmBEXet+qkMaEX67dXrwsd3QQM6w=="
   dependencies:
     lodash "^4.17.5"
+
+graphlib@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/graphlib/-/graphlib-2.1.8.tgz#5761d414737870084c92ec7b5dbcb0592c9d35da"
+  integrity sha512-jcLLfkpoVGmH7/InMC/1hIvOPSUh38oJtGhvrOFGzioE1DZ+0YW16RgmOJhHiuWTvGiJQ9Z1Ik43JvkRPRvE+A==
+  dependencies:
+    lodash "^4.17.15"
 
 graphlibrary@^2.2.0:
   version "2.2.0"
