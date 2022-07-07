@@ -20,7 +20,7 @@
     "lodash": "^4.17.11",
     "mermaid": "^8.4.2",
     "minify": "^4.1.1",
-    "moment": "^2.23.0",
+    "moment": "^2.29.4",
     "moment-mini": "^2.22.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
